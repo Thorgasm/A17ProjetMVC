@@ -12,7 +12,7 @@ namespace tp1_partie2.Models
     {
         public int CategorieID { get; set; }
 
-        [Display(Name = "Name", ResourceType = typeof(Resources.Models.Categorie))]
+        //[Display(Name = "Name", ResourceType = typeof(Resources.Models.Categorie))]
         public string Nom { get; set; }
 
         public virtual ICollection<Objet> Objets { get; set; }

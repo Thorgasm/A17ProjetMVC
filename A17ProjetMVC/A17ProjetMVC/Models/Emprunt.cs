@@ -19,9 +19,7 @@ namespace tp1_partie2.Models
         [Column(TypeName = "date")]
         public DateTime dateDebut { get; set; }
         [Column(TypeName = "date")]
-        public DateTime dateFin { get; set; }
-
-        public virtual Membre Membre { get; set; }
+        public DateTime dateFin { get; set; }        
 
         public virtual Objet objet { get; set; }
 

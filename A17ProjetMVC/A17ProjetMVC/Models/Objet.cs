@@ -4,7 +4,6 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
-using tp1_partie2.Properties;
 
 namespace tp1_partie2.Models
 {
@@ -13,7 +12,7 @@ namespace tp1_partie2.Models
     {
         [Key]
         public int ObjetID { get; set; }
-        [Display(Name = "Name", ResourceType = typeof(Resources.Models.Objet))]
+        
         public string nomObjet { get; set; }
 
         public string description { get; set; }
@@ -25,8 +24,7 @@ namespace tp1_partie2.Models
         public int MembreID { get; set; }
 
         public virtual Categorie Categorie { get; set; }
-
-        public virtual Membre Membre { get; set; }
+        
 
     }
     
