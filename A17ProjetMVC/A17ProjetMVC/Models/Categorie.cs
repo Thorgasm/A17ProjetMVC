@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace tp1_partie2.Models
+namespace A17ProjetMVC.Models
 {
     [Table("Categorie")]
     public class Categorie
