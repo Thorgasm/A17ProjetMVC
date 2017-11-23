@@ -1,4 +1,5 @@
-﻿using System;
+﻿using A17ProjetMVC.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -12,8 +13,8 @@ namespace tp1_partie2.Models
     {
         [Key]
         public int EmpruntID { get; set; }
-        [ForeignKey("Membre")]
-        public int MembreID { get; set; }
+        [ForeignKey("User")]
+        public int UserID { get; set; }
         [ForeignKey("objet")]
         public int ObjetID { get; set; }
         [Column(TypeName = "date")]
@@ -21,11 +22,13 @@ namespace tp1_partie2.Models
         [Column(TypeName = "date")]
         public DateTime dateFin { get; set; }        
 
-        public virtual Objet objet { get; set; }
+        public virtual ApplicationUser User { get; set; }
 
-        public Emprunt(int pMembreID, int pObjetID)
+        public virtual Objet Objet { get; set; }
+
+        public Emprunt(int pUserID, int pObjetID)
         {
-            MembreID = pMembreID;
+            UserID = pUserID;
             ObjetID = pObjetID;
         }
 
