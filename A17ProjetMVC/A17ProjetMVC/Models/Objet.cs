@@ -1,4 +1,5 @@
-﻿using System;
+﻿using A17ProjetMVC.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -21,12 +22,12 @@ namespace tp1_partie2.Models
         [ForeignKey("Categorie")]
         public int CategorieID { get; set; }
 
-        
-        public int MembreID { get; set; }
+        [ForeignKey("User")]
+        public int UserID { get; set; }
 
         public virtual Categorie Categorie { get; set; }
 
-        public virtual Membre Membre { get; set; }
+        public virtual ApplicationUser User { get; set; }
 
     }
     
