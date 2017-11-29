@@ -278,6 +278,16 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Objets\Create.cshtml" />
+    <Content Include="Views\Objets\Delete.cshtml" />
+    <Content Include="Views\Objets\Details.cshtml" />
+    <Content Include="Views\Objets\Edit.cshtml" />
+    <Content Include="Views\Objets\Emprunt.cshtml" />
+    <Content Include="Views\Objets\Index.cshtml" />
+    <Content Include="Views\Objets\MyObjects.cshtml" />
+    <Content Include="Views\Objets\ObjetsDispo.cshtml" />
+    <Content Include="Views\Objets\Top5Objets.cshtml" />
+    <Content Include="Views\Objets\TopMembres.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

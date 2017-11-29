@@ -1,0 +1,41 @@
+﻿@model IEnumerable<A17ProjetMVC.Models.Objet>
+
+@{
+    ViewBag.Title = "Top 5 Objets";
+}
+
+<h2>Top 5 Objets</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Categorie.Nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nomObjet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Categorie.Nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nomObjet)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        
+    </tr>
+}
+
+</table>

@@ -1,0 +1,31 @@
+﻿@model IEnumerable<A17ProjetMVC.Models.Objet>
+
+@{
+    ViewBag.Title = "ObjetsDispo";
+}
+
+<h2>ObjetsDispo</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nomObjet)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nomObjet)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id=item.ObjetID })
+        </td>
+    </tr>
+}
+
+</table>
