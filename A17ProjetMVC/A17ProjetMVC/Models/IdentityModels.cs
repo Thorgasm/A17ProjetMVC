@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
 
 namespace A17ProjetMVC.Models
 {
@@ -14,6 +15,10 @@ namespace A17ProjetMVC.Models
         public string Prenom { get; set; }
         public string Adresse { get; set; }
         public string NoTelephone { get; set; }
+
+        public virtual List<Objet> Objets { get; set; }
+
+        public virtual List<Emprunt> Emprunts { get; set; }
 
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
@@ -37,5 +42,8 @@ namespace A17ProjetMVC.Models
         {
             return new ApplicationDbContext();
         }
+        public virtual DbSet<Objet> Objets { get; set; }
+        public virtual DbSet<Emprunt> Emprunts { get; set; }
+        public virtual DbSet<Categorie> Categories { get; set; }
     }
 }
