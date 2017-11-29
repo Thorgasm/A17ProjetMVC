@@ -18,6 +18,7 @@ namespace A17ProjetMVC.Controllers
 
         public ManageController()
         {
+            
         }
 
         public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)

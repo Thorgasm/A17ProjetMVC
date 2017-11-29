@@ -6,11 +6,10 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using tp1_partie2.DAL;
-using tp1_partie2.Models;
-using tp1_partie2.ViewModels;
+using A17ProjetMVC.DAL;
+using A17ProjetMVC.Models;
 
-namespace tp1_partie2.Controllers
+namespace A17ProjetMVC.Controllers
 {
     [RoutePrefix("Emprunts")]
     public class EmpruntsController : Controller
@@ -20,11 +19,8 @@ namespace tp1_partie2.Controllers
         [Route("Index")]
         public ActionResult Index()
         {
-            return View(unitOfWork.Repo<Membre>().GetByID(1).emprunt.ToList());
+            return View(unitOfWork.UserRepository.Get());
         }
-
-
-
 
         [Route("Details")]
         public ActionResult Details(int? id)
@@ -33,16 +29,13 @@ namespace tp1_partie2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Emprunt emprunt = unitOfWork.Repo<Emprunt>().context.Emprunts.Find(id);
+            Emprunt emprunt = unitOfWork.EmpruntRepository.GetByID(id);
             if (emprunt == null)
             {
                 return HttpNotFound();
             }
             return View(emprunt);
         }
-
-
-
 
         [Route("Delete")]
         public ActionResult Delete(int? id)
@@ -51,7 +44,7 @@ namespace tp1_partie2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Emprunt emprunt = unitOfWork.Repo<Emprunt>().context.Emprunts.Find(id);
+            Emprunt emprunt = unitOfWork.EmpruntRepository.GetByID(id);
             if (emprunt == null)
             {
                 return HttpNotFound();
@@ -64,9 +57,9 @@ namespace tp1_partie2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Emprunt emprunt = unitOfWork.Repo<Emprunt>().context.Emprunts.Find(id);
-            unitOfWork.Repo<Emprunt>().context.Emprunts.Remove(emprunt);
-            unitOfWork.Repo<Emprunt>().context.SaveChanges();
+            Emprunt emprunt = unitOfWork.EmpruntRepository.GetByID(id);
+            unitOfWork.EmpruntRepository.Delete(emprunt);
+            unitOfWork.Save();
             return RedirectToAction("Index");
         }
 
@@ -74,7 +67,7 @@ namespace tp1_partie2.Controllers
         {
             if (disposing)
             {
-                unitOfWork.Repo<Emprunt>().context.Dispose();
+                unitOfWork.Dispose();
             }
             base.Dispose(disposing);
         }

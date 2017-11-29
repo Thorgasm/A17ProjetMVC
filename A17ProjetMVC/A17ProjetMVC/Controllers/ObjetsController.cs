@@ -7,11 +7,11 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using tp1_partie2.DAL;
-using tp1_partie2.Models;
-using tp1_partie2.ViewModels;
+using A17ProjetMVC.DAL;
+using A17ProjetMVC.Models;
+using Microsoft.AspNet.Identity;
 
-namespace tp1_partie2.Controllers
+namespace A17ProjetMVC.Controllers
 {
     [RoutePrefix("Objets")]
     public class ObjetsController : Controller
@@ -23,9 +23,9 @@ namespace tp1_partie2.Controllers
         [Route("~/Index")]
         [Route("Index")]
         public ActionResult Index()
-        {            
+        {
 
-            List<Categorie> lstCats = unitOfWork.Repo<Categorie>().context.Categories.ToList();
+            List<Categorie> lstCats = unitOfWork.CategorieRepository.Get().ToList();
             IEnumerable<SelectListItem> cats = new SelectList(lstCats, "CategorieID", "Nom");
 
             string cat;
@@ -34,13 +34,13 @@ namespace tp1_partie2.Controllers
             else cat = "1";
 
             ViewBag.Categories = cats;
-            return View(unitOfWork.Repo<Objet>().GetObjetsByCat(int.Parse(cat)));
+            return View(unitOfWork.ObjetRepository.GetObjetsByCat(unitOfWork.ObjetRepository,int.Parse(cat)));
         }
         [HttpPost]
         public ActionResult Index(FormCollection form)
         {
 
-            List<Categorie> lstCats = unitOfWork.Repo<Categorie>().context.Categories.ToList();
+            List<Categorie> lstCats = unitOfWork.CategorieRepository.Get().ToList();
             IEnumerable<SelectListItem> cats = new SelectList(lstCats, "CategorieID", "Nom");
 
             string cat;
@@ -49,11 +49,13 @@ namespace tp1_partie2.Controllers
             else cat = "1";
 
             ViewBag.Categories = cats;
-            return View(unitOfWork.Repo<Objet>().GetObjetsByCat(int.Parse(cat)));
+            return View(unitOfWork.ObjetRepository.GetObjetsByCat(unitOfWork.ObjetRepository,int.Parse(cat)));
         }
         [Route("ObjetsDispo")]
         public ActionResult ObjetsDispo()
         {
+
+
             return View(unitOfWork.Repo<Objet>().GetAvailableObjets());
         }
         [Route("MesObjets")]
@@ -72,8 +74,6 @@ namespace tp1_partie2.Controllers
             return View(unitOfWork.Repo<Objet>().getTopMembres());
         }
 
-
-
         [Route("Emprunt")]
         public ActionResult Emprunt(int? id)
         {
@@ -81,7 +81,7 @@ namespace tp1_partie2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Objet objet = unitOfWork.Repo<Objet>().context.Objets.Find(id);
+            Objet objet = unitOfWork.ObjetRepository.GetByID(id);
             if (objet == null)
             {
                 return HttpNotFound();
@@ -105,8 +105,8 @@ namespace tp1_partie2.Controllers
                 string a = form["nbJours"].ToString();
                 e.dateFin = DateTime.Now.AddDays(int.Parse(a));
 
-                unitOfWork.Repo<Emprunt>().context.Emprunts.Add(e);
-                unitOfWork.Repo<Emprunt>().context.SaveChanges();
+                unitOfWork.EmpruntRepository.Insert(e);
+                unitOfWork.Save();
                 return RedirectToAction("Index");
             }
 
@@ -122,7 +122,7 @@ namespace tp1_partie2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Objet objet = unitOfWork.Repo<Objet>().context.Objets.Find(id);
+            Objet objet = unitOfWork.ObjetRepository.GetByID(id);
             if (objet == null)
             {
                 return HttpNotFound();
@@ -133,7 +133,7 @@ namespace tp1_partie2.Controllers
         [Route("Create")]
         public ActionResult Create()
         {
-            List<Categorie> lstCats = unitOfWork.Repo<Categorie>().context.Categories.ToList();
+            List<Categorie> lstCats = unitOfWork.CategorieRepository.Get().ToList();
             IEnumerable<SelectListItem> cats = new SelectList(lstCats, "CategorieID", "Nom");
             ViewBag.Categories = cats;
             return View();
@@ -165,7 +165,7 @@ namespace tp1_partie2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Objet objet = unitOfWork.Repo<Objet>().context.Objets.Find(id);
+            Objet objet = unitOfWork.ObjetRepository.GetByID(id);
             if (objet == null)
             {
                 return HttpNotFound();
@@ -182,8 +182,8 @@ namespace tp1_partie2.Controllers
         {
             if (ModelState.IsValid)
             {
-                unitOfWork.Repo<Objet>().context.Entry(objet).State = EntityState.Modified;
-                unitOfWork.Repo<Objet>().context.SaveChanges();
+                unitOfWork.ObjetRepository.Update(objet);
+                unitOfWork.Save();
                 return RedirectToAction("Index");
             }
             return View(objet);
@@ -196,7 +196,7 @@ namespace tp1_partie2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Objet objet = unitOfWork.Repo<Objet>().context.Objets.Find(id);
+            Objet objet = unitOfWork.ObjetRepository.GetByID(id);
             if (objet == null)
             {
                 return HttpNotFound();
@@ -209,9 +209,9 @@ namespace tp1_partie2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Objet objet = unitOfWork.Repo<Objet>().context.Objets.Find(id);
-            unitOfWork.Repo<Objet>().context.Objets.Remove(objet);
-            unitOfWork.Repo<Objet>().context.SaveChanges();
+            Objet objet = unitOfWork.ObjetRepository.GetByID(id);
+            unitOfWork.ObjetRepository.Delete(objet);
+            unitOfWork.Save();
             return RedirectToAction("Index");
         }
 
@@ -219,7 +219,7 @@ namespace tp1_partie2.Controllers
         {
             if (disposing)
             {
-                unitOfWork.Repo<Objet>().context.Dispose();
+                unitOfWork.Dispose();
             }
             base.Dispose(disposing);
         }
