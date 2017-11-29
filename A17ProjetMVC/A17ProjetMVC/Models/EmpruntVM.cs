@@ -10,7 +10,7 @@ namespace A17ProjetMVC.Models
 
         public int ObjetID;
 
-        public int nbJours;
+        public int NbJours;
 
     }
 }
