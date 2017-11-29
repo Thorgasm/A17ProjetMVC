@@ -1,0 +1,52 @@
+﻿@model IEnumerable<A17ProjetMVC.Models.Objet>
+
+@{
+	ViewBag.Title = "Tout les objets";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+<hr />
+
+	<table class="table">
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.nomObjet)
+			</th>
+			<th></th>
+		</tr>
+
+		@using (Html.BeginForm())
+		{
+			@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+			<div class="form-group">
+				@Html.Label("Categorie", htmlAttributes: new { @class = "control-label col-md-2" })
+				<div class="col-md-8">
+					@Html.DropDownList("CategorieID", (SelectList)ViewBag.Categories, htmlAttributes: new { @class = "control-label col-md-2" })
+
+			</div>
+					<input type="submit" value="GO!" class="btn btn-default" />	
+			</div>
+
+		}
+
+
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.nomObjet)
+				</td>
+				<td>
+					@Html.ActionLink("Details", "Details", new { id = item.ObjetID }) |
+					@Html.ActionLink("Emprunt", "Emprunt", new { id = item.ObjetID })
+				</td>
+			</tr>
+		}
+
+	</table>
