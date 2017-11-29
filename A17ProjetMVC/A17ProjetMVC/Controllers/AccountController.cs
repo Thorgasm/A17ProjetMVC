@@ -13,6 +13,7 @@ using A17ProjetMVC.Models;
 namespace A17ProjetMVC.Controllers
 {
     [Authorize]
+    [RoutePrefix("Account")]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
@@ -57,6 +58,7 @@ namespace A17ProjetMVC.Controllers
         //
         // GET: /Account/Login
         [AllowAnonymous]
+        [Route("Login")]
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
@@ -68,6 +70,7 @@ namespace A17ProjetMVC.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
+        [Route("Login")]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
             if (!ModelState.IsValid)
@@ -96,6 +99,7 @@ namespace A17ProjetMVC.Controllers
         //
         // GET: /Account/VerifyCode
         [AllowAnonymous]
+        [Route("VerifyCode")]
         public async Task<ActionResult> VerifyCode(string provider, string returnUrl, bool rememberMe)
         {
             // Nécessiter que l'utilisateur soit déjà connecté via un nom d'utilisateur/mot de passe ou une connexte externe
@@ -111,6 +115,7 @@ namespace A17ProjetMVC.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
+        [Route("VerifyCode")]
         public async Task<ActionResult> VerifyCode(VerifyCodeViewModel model)
         {
             if (!ModelState.IsValid)
@@ -139,6 +144,7 @@ namespace A17ProjetMVC.Controllers
         //
         // GET: /Account/Register
         [AllowAnonymous]
+        [Route("Register")]
         public ActionResult Register()
         {
             return View();
@@ -149,6 +155,7 @@ namespace A17ProjetMVC.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
+        [Route("Register")]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
@@ -177,6 +184,7 @@ namespace A17ProjetMVC.Controllers
         //
         // GET: /Account/ConfirmEmail
         [AllowAnonymous]
+        [Route("ConfirmEmail")]
         public async Task<ActionResult> ConfirmEmail(string userId, string code)
         {
             if (userId == null || code == null)
@@ -190,6 +198,7 @@ namespace A17ProjetMVC.Controllers
         //
         // GET: /Account/ForgotPassword
         [AllowAnonymous]
+        [Route("ForgotPassword")]
         public ActionResult ForgotPassword()
         {
             return View();
@@ -200,6 +209,7 @@ namespace A17ProjetMVC.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
+        [Route("ForgotPassword")]
         public async Task<ActionResult> ForgotPassword(ForgotPasswordViewModel model)
         {
             if (ModelState.IsValid)
@@ -226,6 +236,7 @@ namespace A17ProjetMVC.Controllers
         //
         // GET: /Account/ForgotPasswordConfirmation
         [AllowAnonymous]
+        [Route("ForgotPasswordConfirmation")]
         public ActionResult ForgotPasswordConfirmation()
         {
             return View();
@@ -234,6 +245,7 @@ namespace A17ProjetMVC.Controllers
         //
         // GET: /Account/ResetPassword
         [AllowAnonymous]
+        [Route("ResetPassword")]
         public ActionResult ResetPassword(string code)
         {
             return code == null ? View("Error") : View();
@@ -244,6 +256,7 @@ namespace A17ProjetMVC.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
+        [Route("ResetPassword")]
         public async Task<ActionResult> ResetPassword(ResetPasswordViewModel model)
         {
             if (!ModelState.IsValid)
@@ -268,6 +281,7 @@ namespace A17ProjetMVC.Controllers
         //
         // GET: /Account/ResetPasswordConfirmation
         [AllowAnonymous]
+        [Route("ResetPasswordConfirmation")]
         public ActionResult ResetPasswordConfirmation()
         {
             return View();
@@ -278,6 +292,7 @@ namespace A17ProjetMVC.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
+        [Route("ExternalLogin")]
         public ActionResult ExternalLogin(string provider, string returnUrl)
         {
             // Demandez une redirection vers le fournisseur de connexions externe
@@ -287,6 +302,7 @@ namespace A17ProjetMVC.Controllers
         //
         // GET: /Account/SendCode
         [AllowAnonymous]
+        [Route("SendCode")]
         public async Task<ActionResult> SendCode(string returnUrl, bool rememberMe)
         {
             var userId = await SignInManager.GetVerifiedUserIdAsync();
@@ -304,6 +320,7 @@ namespace A17ProjetMVC.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
+        [Route("SendCode")]
         public async Task<ActionResult> SendCode(SendCodeViewModel model)
         {
             if (!ModelState.IsValid)
@@ -322,6 +339,7 @@ namespace A17ProjetMVC.Controllers
         //
         // GET: /Account/ExternalLoginCallback
         [AllowAnonymous]
+        [Route("ExternalLoginCallback")]
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
         {
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync();
@@ -354,6 +372,7 @@ namespace A17ProjetMVC.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
+        [Route("ExternalLoginConfirmation")]
         public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
         {
             if (User.Identity.IsAuthenticated)
@@ -391,6 +410,7 @@ namespace A17ProjetMVC.Controllers
         // POST: /Account/LogOff
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("LogOff")]
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
@@ -400,6 +420,7 @@ namespace A17ProjetMVC.Controllers
         //
         // GET: /Account/ExternalLoginFailure
         [AllowAnonymous]
+        [Route("ExternalLoginFailure")]
         public ActionResult ExternalLoginFailure()
         {
             return View();

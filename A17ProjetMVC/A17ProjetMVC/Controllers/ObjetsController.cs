@@ -95,6 +95,7 @@ namespace A17ProjetMVC.Controllers
 
         
         [HttpPost]
+        [Route("Emprunt")]
         public ActionResult Emprunt(FormCollection form)
         {
             if (ModelState.IsValid)
@@ -144,6 +145,7 @@ namespace A17ProjetMVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Create")]
         public ActionResult Create([Bind(Include = "ObjetID,nomObjet, description,CategorieID")] Objet objet)
         {
             if (ModelState.IsValid)
@@ -178,6 +180,7 @@ namespace A17ProjetMVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Edit")]
         public ActionResult Edit([Bind(Include = "ObjetID,nomObjet")] Objet objet)
         {
             if (ModelState.IsValid)

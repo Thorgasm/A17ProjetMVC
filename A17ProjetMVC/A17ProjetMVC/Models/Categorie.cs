@@ -12,7 +12,7 @@ namespace A17ProjetMVC.Models
     {
         public int CategorieID { get; set; }
 
-        //[Display(Name = "Name", ResourceType = typeof(Resources.Models.Categorie))]
+        [Display(Name = "Categorie")]
         public string Nom { get; set; }
 
         public virtual ICollection<Objet> Objets { get; set; }

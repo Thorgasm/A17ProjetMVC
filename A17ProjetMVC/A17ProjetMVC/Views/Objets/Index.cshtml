@@ -7,46 +7,67 @@
 <h2>@ViewBag.Title</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", "Objets", null, htmlAttributes: new { @class = "btn btn-primary"})
 </p>
 
 
 <hr />
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label>Catégorie: </label>
+            <div style="width: 200px;">
+                @Html.DropDownList("CategorieID", (SelectList)ViewBag.Categories, htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+        <input type="submit" value="GO!" class="btn btn-default" />
+
+    }
 
 	<table class="table">
 		<tr>
-			<th>
+			<th style="width: 150px;">
 				@Html.DisplayNameFor(model => model.NomObjet)
 			</th>
-			<th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th style="width: 100px;">
+                @Html.DisplayNameFor(model => model.Categorie.Nom)
+            </th>
+			<th style="width: 150px; text-align:center">Actions</th>
 		</tr>
 
-		@using (Html.BeginForm())
-		{
-			@Html.ValidationSummary(true, "", new { @class = "text-danger" })
-			<div class="form-group">
-				@Html.Label("Categorie", htmlAttributes: new { @class = "control-label col-md-2" })
-				<div class="col-md-8">
-					@Html.DropDownList("CategorieID", (SelectList)ViewBag.Categories, htmlAttributes: new { @class = "control-label col-md-2" })
+        @if (Model.Count() > 0)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NomObjet)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Categorie.Nom)
+                    </td>
+                    <td style="text-align: right; text-align:center">
+                        @Html.ActionLink("Details", "Details", new { id = item.ObjetID }) |
+                        @Html.ActionLink("Emprunt", "Emprunt", new { id = item.ObjetID })
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="4">
+                    Vous n'avez aucun objets :(
+                </td>
+            </tr>
+        }
 
-			</div>
-					<input type="submit" value="GO!" class="btn btn-default" />	
-			</div>
-
-		}
-
-
-		@foreach (var item in Model)
-		{
-			<tr>
-				<td>
-					@Html.DisplayFor(modelItem => item.NomObjet)
-				</td>
-				<td>
-					@Html.ActionLink("Details", "Details", new { id = item.ObjetID }) |
-					@Html.ActionLink("Emprunt", "Emprunt", new { id = item.ObjetID })
-				</td>
-			</tr>
-		}
 
 	</table>
