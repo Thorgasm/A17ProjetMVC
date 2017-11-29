@@ -6,34 +6,24 @@ using System.Web;
 
 namespace A17ProjetMVC.DAL
 {
-    public class ObjetRepository
+    public static class ObjetRepository
     {
-        
-
         public static List<Objet> GetAvailableObjets(this GenericRepository<Objet> repo)
         {
-            
-
             List<int> lstObjets = repo.context.Emprunts.Select(e => e.ObjetID).ToList();
 
             List<Objet> lst = repo.context.Objets.Where(o => !lstObjets.Contains(o.ObjetID)).ToList();
 
             return lst;
-
-
         }
 
         public static List<Objet> GetMyObjects(this GenericRepository<Objet> repo, string UserID)
         {
-
-
             ApplicationUser mem = repo.context.Users.Where(m => m.Id == UserID).First();
 
             List<Objet> lst = mem.Objets.ToList();
 
             return lst;
-
-
         }
 
         public static bool AddtoCurMembre(this GenericRepository<Objet> repo, Objet ob, string UserID)
@@ -42,10 +32,8 @@ namespace A17ProjetMVC.DAL
 
             a.Objets.Add(ob);
             repo.context.SaveChanges();
-
-
+            
             return true;
-
         }
 
         public static List<Objet> GetObjetsByCat(this GenericRepository<Objet> repo, int pCatID)
