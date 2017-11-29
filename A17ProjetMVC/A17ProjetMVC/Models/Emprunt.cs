@@ -20,7 +20,9 @@ namespace A17ProjetMVC.Models
         [Column(TypeName = "date")]
         public DateTime dateDebut { get; set; }
         [Column(TypeName = "date")]
-        public DateTime dateFin { get; set; }        
+        public DateTime dateFin { get; set; }     
+        
+        //public int NoteService { get; set; }   
 
         public virtual ApplicationUser User { get; set; }
 
