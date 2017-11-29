@@ -34,7 +34,7 @@ namespace A17ProjetMVC.Controllers
             else cat = "1";
 
             ViewBag.Categories = cats;
-            return View(unitOfWork.ObjetRepository.GetObjetsByCat(unitOfWork.ObjetRepository,int.Parse(cat)));
+            return View(unitOfWork.ObjetRepository.GetObjetsByCat(int.Parse(cat)));
         }
         [HttpPost]
         public ActionResult Index(FormCollection form)
@@ -49,29 +49,29 @@ namespace A17ProjetMVC.Controllers
             else cat = "1";
 
             ViewBag.Categories = cats;
-            return View(unitOfWork.ObjetRepository.GetObjetsByCat(unitOfWork.ObjetRepository,int.Parse(cat)));
+            return View(unitOfWork.ObjetRepository.GetObjetsByCat(int.Parse(cat)));
         }
         [Route("ObjetsDispo")]
         public ActionResult ObjetsDispo()
         {
 
 
-            return View(unitOfWork.Repo<Objet>().GetAvailableObjets());
+            return View(unitOfWork.ObjetRepository.GetAvailableObjets());
         }
         [Route("MesObjets")]
         public ActionResult MyObjects()
         {
-            return View(unitOfWork.Repo<Objet>().GetMyObjects());
+            return View(unitOfWork.ObjetRepository.GetMyObjects(User.Identity.GetUserId()));
         }
         [Route("TopObjets")]
         public ActionResult Top5Objets()
         {
-            return View(unitOfWork.Repo<Objet>().getTop5Objets());
+            return View(unitOfWork.ObjetRepository.getTop5Objets());
         }
         [Route("TopMembres")]
         public ActionResult TopMembres()
         {
-            return View(unitOfWork.Repo<Objet>().getTopMembres());
+            return View(unitOfWork.ObjetRepository.getTopMembres());
         }
 
         [Route("Emprunt")]
@@ -151,7 +151,7 @@ namespace A17ProjetMVC.Controllers
                 //unitOfWork.Repo<Objet>().context.Objets.Add(objet);                
                 //unitOfWork.Repo<Objet>().context.SaveChanges();
                 Objet a = new Objet { ObjetID = objet.ObjetID, nomObjet = objet.nomObjet, CategorieID = objet.CategorieID, description = objet.description};
-                unitOfWork.Repo<Objet>().AddtoCurMembre(a);
+                unitOfWork.ObjetRepository.AddtoCurMembre(a,User.Identity.GetUserId());
                 return RedirectToAction("Index");
             }
 

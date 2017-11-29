@@ -72,15 +72,6 @@ namespace A17ProjetMVC.DAL
                 dbSet.Attach(entityToDelete);
             }
             dbSet.Remove(entityToDelete);
-
-            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
-
-            var currentUser = userManager.FindById(User.Identity.GetUserId());
-
-            if (currentUser != null)
-            {
-                ViewBag.Email = currentUser.Email;
-            }
         }
     }
 }
