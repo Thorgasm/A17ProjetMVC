@@ -88,7 +88,7 @@ namespace A17ProjetMVC.Controllers
             }
             EmpruntVM e = new EmpruntVM();
             e.ObjetID = objet.ObjetID;
-            ViewBag.Objet = objet.nomObjet;
+            ViewBag.Objet = objet.NomObjet;
 
             return View(e);
         }
@@ -100,10 +100,10 @@ namespace A17ProjetMVC.Controllers
             if (ModelState.IsValid)
             {
                 string id = form["objetID"].ToString();
-                Emprunt e = new Emprunt(1, int.Parse(id));
-                e.dateDebut = DateTime.Now;
+                Emprunt e = new Emprunt(User.Identity.GetUserId(), int.Parse(id));
+                e.DateDebut = DateTime.Now;
                 string a = form["nbJours"].ToString();
-                e.dateFin = DateTime.Now.AddDays(int.Parse(a));
+                e.DateFin = DateTime.Now.AddDays(int.Parse(a));
 
                 unitOfWork.EmpruntRepository.Insert(e);
                 unitOfWork.Save();
@@ -150,7 +150,7 @@ namespace A17ProjetMVC.Controllers
             {
                 //unitOfWork.Repo<Objet>().context.Objets.Add(objet);                
                 //unitOfWork.Repo<Objet>().context.SaveChanges();
-                Objet a = new Objet { ObjetID = objet.ObjetID, nomObjet = objet.nomObjet, CategorieID = objet.CategorieID, description = objet.description};
+                Objet a = new Objet { ObjetID = objet.ObjetID, NomObjet = objet.NomObjet, CategorieID = objet.CategorieID, Description = objet.Description};
                 unitOfWork.ObjetRepository.AddtoCurMembre(a,User.Identity.GetUserId());
                 return RedirectToAction("Index");
             }

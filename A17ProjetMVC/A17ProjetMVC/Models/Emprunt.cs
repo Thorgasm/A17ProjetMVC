@@ -13,14 +13,18 @@ namespace A17ProjetMVC.Models
     {
         [Key]
         public int EmpruntID { get; set; }
+
         [ForeignKey("User")]
-        public int UserID { get; set; }
-        [ForeignKey("objet")]
+        public string UserID { get; set; }
+
+        [ForeignKey("Objet")]
         public int ObjetID { get; set; }
+
         [Column(TypeName = "date")]
-        public DateTime dateDebut { get; set; }
+        public DateTime DateDebut { get; set; }
+
         [Column(TypeName = "date")]
-        public DateTime dateFin { get; set; }     
+        public DateTime DateFin { get; set; }     
         
         //public int NoteService { get; set; }   
 
@@ -28,7 +32,7 @@ namespace A17ProjetMVC.Models
 
         public virtual Objet Objet { get; set; }
 
-        public Emprunt(int pUserID, int pObjetID)
+        public Emprunt(string pUserID, int pObjetID)
         {
             UserID = pUserID;
             ObjetID = pObjetID;

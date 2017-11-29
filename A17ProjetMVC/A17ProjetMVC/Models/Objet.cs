@@ -14,15 +14,15 @@ namespace A17ProjetMVC.Models
         [Key]
         public int ObjetID { get; set; }
         
-        public string nomObjet { get; set; }
+        public string NomObjet { get; set; }
 
-        public string description { get; set; }
+        public string Description { get; set; }
 
         [ForeignKey("Categorie")]
         public int CategorieID { get; set; }
 
         [ForeignKey("User")]
-        public int UserID { get; set; }
+        public string UserID { get; set; }
 
         public virtual Categorie Categorie { get; set; }
 
