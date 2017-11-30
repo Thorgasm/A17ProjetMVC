@@ -289,6 +289,7 @@
     <Content Include="Views\Objets\ObjetsDispo.cshtml" />
     <Content Include="Views\Objets\Top5Objets.cshtml" />
     <Content Include="Views\Objets\TopMembres.cshtml" />
+    <Content Include="Views\Objets\EvalEmprunt.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
