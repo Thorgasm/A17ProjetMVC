@@ -18,6 +18,8 @@ namespace A17ProjetMVC.Models
 
         public string Description { get; set; }
 
+        public bool estDisponible { get; set; }
+
         [ForeignKey("Categorie")]
         public int CategorieID { get; set; }
 
