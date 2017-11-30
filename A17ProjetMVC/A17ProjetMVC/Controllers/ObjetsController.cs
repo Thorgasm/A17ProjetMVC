@@ -18,7 +18,7 @@ namespace A17ProjetMVC.Controllers
     {
         private UnitOfWork unitOfWork = new UnitOfWork();
 
-        
+
         [Route("~/")]
         [Route("~/Index")]
         [Route("Index")]
@@ -105,7 +105,7 @@ namespace A17ProjetMVC.Controllers
                 e.DateDebut = DateTime.Now;
                 string a = form["nbJours"].ToString();
                 e.DateFin = DateTime.Now.AddDays(int.Parse(a));
-
+                e.UserID = User.Identity.GetUserId();
                 unitOfWork.EmpruntRepository.Insert(e);
                 unitOfWork.Save();
                 return RedirectToAction("Index");
