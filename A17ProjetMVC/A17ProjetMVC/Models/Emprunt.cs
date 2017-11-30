@@ -26,7 +26,8 @@ namespace A17ProjetMVC.Models
         [Column(TypeName = "date")]
         public DateTime DateFin { get; set; }     
         
-        //public int NoteService { get; set; }   
+        [Range(1,5)]
+        public int NoteService { get; set; }   
 
         public virtual ApplicationUser User { get; set; }
 

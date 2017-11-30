@@ -1,0 +1,49 @@
+﻿@model A17ProjetMVC.Models.Emprunt
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Emprunt</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.Nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Objet.NomObjet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Objet.NomObjet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateDebut)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateDebut)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateFin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateFin)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
