@@ -6,10 +6,12 @@
 
 <h2>@ViewBag.Title</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create", "Objets", null, htmlAttributes: new { @class = "btn btn-primary"})
-</p>
-
+@if (User.Identity.IsAuthenticated)
+{
+    <p>
+        @Html.ActionLink("Create New", "Create", "Objets", null, htmlAttributes: new { @class = "btn btn-primary" })
+    </p>
+}
 
 <hr />
     @using (Html.BeginForm())
