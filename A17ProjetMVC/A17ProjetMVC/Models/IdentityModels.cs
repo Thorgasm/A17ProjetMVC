@@ -20,8 +20,19 @@ namespace A17ProjetMVC.Models
         [Display(Name = "Adresse")]
         public string Adresse { get; set; }
 
-        [Display(Name = "Numéros de téléphone")]
-        public string NoTelephone { get; set; }
+        [Display(Name = "Numéro de téléphone")]
+        public override string PhoneNumber
+        {
+            get
+            {
+                return base.PhoneNumber;
+            }
+
+            set
+            {
+                base.PhoneNumber = value;
+            }
+        }
 
         [Display(Name = "Matricule")]
         public override string UserName

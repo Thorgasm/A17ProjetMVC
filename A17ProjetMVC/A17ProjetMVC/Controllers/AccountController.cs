@@ -161,6 +161,11 @@ namespace A17ProjetMVC.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Matricule, Email = model.Email };
+                user.Adresse = model.Adresse;
+                user.Nom = model.Nom;
+                user.Prenom = model.Prenom;
+                user.PhoneNumber = model.NumeroTelephone;
+
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
