@@ -92,7 +92,6 @@ namespace A17ProjetMVC.Controllers
 
             return View(e);
         }
-
         
         [HttpPost]
         [Route("Emprunt")]
@@ -100,12 +99,14 @@ namespace A17ProjetMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                string id = form["objetID"].ToString();
-                Emprunt e = new Emprunt(User.Identity.GetUserId(), int.Parse(id));
+                int id = int.Parse(form["objetID"].ToString());
+                Emprunt e = new Emprunt(User.Identity.GetUserId(), id);
                 e.DateDebut = DateTime.Now;
                 string a = form["nbJours"].ToString();
                 e.DateFin = DateTime.Now.AddDays(int.Parse(a));
                 e.UserID = User.Identity.GetUserId();
+                e.Objet = unitOfWork.ObjetRepository.GetByID(id);
+                e.User = unitOfWork.UserRepository.GetByID(User.Identity.GetUserId());
                 unitOfWork.EmpruntRepository.Insert(e);
                 unitOfWork.Save();
                 return RedirectToAction("Index");
