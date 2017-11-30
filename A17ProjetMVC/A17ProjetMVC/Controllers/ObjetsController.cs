@@ -13,6 +13,7 @@ using Microsoft.AspNet.Identity;
 
 namespace A17ProjetMVC.Controllers
 {
+    [Authorize]
     [RoutePrefix("Objets")]
     public class ObjetsController : Controller
     {
@@ -22,6 +23,7 @@ namespace A17ProjetMVC.Controllers
         [Route("~/")]
         [Route("~/Index")]
         [Route("Index")]
+        [AllowAnonymous]
         public ActionResult Index()
         {
 
@@ -37,6 +39,7 @@ namespace A17ProjetMVC.Controllers
             return View(unitOfWork.ObjetRepository.GetObjetsByCat(int.Parse(cat)));
         }
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult Index(FormCollection form)
         {
 
@@ -52,10 +55,9 @@ namespace A17ProjetMVC.Controllers
             return View(unitOfWork.ObjetRepository.GetObjetsByCat(int.Parse(cat)));
         }
         [Route("ObjetsDispo")]
+        [AllowAnonymous]
         public ActionResult ObjetsDispo()
         {
-
-
             return View(unitOfWork.ObjetRepository.GetAvailableObjets());
         }
         [Route("MesObjets")]
@@ -64,16 +66,19 @@ namespace A17ProjetMVC.Controllers
             return View(unitOfWork.ObjetRepository.GetMyObjects(User.Identity.GetUserId()));
         }
         [Route("TopObjets")]
+        [AllowAnonymous]
         public ActionResult Top5Objets()
         {
             return View(unitOfWork.ObjetRepository.getTop5Objets());
         }
         [Route("TopMembres")]
+        [AllowAnonymous]
         public ActionResult TopMembres()
         {
             return View(unitOfWork.ObjetRepository.getTopMembres(TimeSpace.SEMAINE));
         }
         [Route("Statistiques")]
+        [AllowAnonymous]
         public ActionResult Statistiques()
         {
             StatistiquesVM svm = new StatistiquesVM();
@@ -126,6 +131,7 @@ namespace A17ProjetMVC.Controllers
 
 
         [Route("Details")]
+        [AllowAnonymous]
         public ActionResult Details(int? id)
         {
             if (id == null)
