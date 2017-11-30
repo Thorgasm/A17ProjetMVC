@@ -26,6 +26,8 @@ namespace A17ProjetMVC.Models
         [ForeignKey("User")]
         public string UserID { get; set; }
 
+        public DateTime DatePublication { get; set; }
+
         public virtual Categorie Categorie { get; set; }
 
         public virtual ApplicationUser User { get; set; }

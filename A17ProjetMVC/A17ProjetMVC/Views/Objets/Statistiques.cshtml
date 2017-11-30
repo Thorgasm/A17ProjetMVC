@@ -1,0 +1,94 @@
+﻿@model A17ProjetMVC.Models.StatistiquesVM
+
+@{
+    ViewBag.Title = "Statistiques";
+}
+
+<h2>Statistiques</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Top 5 membres généreux du mois</h3>
+            <table class="table">
+                <tr>
+                    <th>
+                        Matricule
+                    </th>
+                    <th>
+                        Nom
+                    </th>
+                    <th>
+                        Prenom
+                    </th>
+                    <th>
+                        Nb D'objets
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model.Top5MembreGenereuxMois)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.User.UserName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.User.Nom)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.User.Prenom)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ObjetCount)
+                        </td>
+
+                    </tr>
+                }
+
+            </table>
+        </div>
+        <div class="col-md-6">
+            <h3>Top 5 membres généreux de la semaine</h3>
+            <table class="table">
+                <tr>
+                    <th>
+                        Matricule
+                    </th>
+                    <th>
+                        Nom
+                    </th>
+                    <th>
+                        Prenom
+                    </th>
+                    <th>
+                        Nb D'objets
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model.Top5MembreGenereuxSemaine)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.User.UserName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.User.Nom)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.User.Prenom)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ObjetCount)
+                        </td>
+
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>
+
+

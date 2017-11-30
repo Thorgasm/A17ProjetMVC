@@ -71,7 +71,16 @@ namespace A17ProjetMVC.Controllers
         [Route("TopMembres")]
         public ActionResult TopMembres()
         {
-            return View(unitOfWork.ObjetRepository.getTopMembres());
+            return View(unitOfWork.ObjetRepository.getTopMembres(TimeSpace.SEMAINE));
+        }
+
+        public ActionResult Statistiques()
+        {
+            StatistiquesVM svm = new StatistiquesVM();
+            svm.Top5MembreGenereuxSemaine = unitOfWork.ObjetRepository.getTopMembres(TimeSpace.SEMAINE);
+            svm.Top5MembreGenereuxMois = unitOfWork.ObjetRepository.getTopMembres(TimeSpace.MOIS);
+            return View(svm);
+
         }
 
         [Route("Emprunt")]
