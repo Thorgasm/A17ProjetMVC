@@ -4,17 +4,38 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace A17ProjetMVC.Models
 {
     // Vous pouvez ajouter des données de profil pour l'utilisateur en ajoutant plus de propriétés à votre classe ApplicationUser ; consultez http://go.microsoft.com/fwlink/?LinkID=317594 pour en savoir davantage.
     public class ApplicationUser : IdentityUser
     {
-        public string Matricule { get; set; }
+        [Display(Name = "Nom")]
         public string Nom { get; set; }
+
+        [Display(Name = "Prénom")]
         public string Prenom { get; set; }
+        
+        [Display(Name = "Adresse")]
         public string Adresse { get; set; }
+
+        [Display(Name = "Numéros de téléphone")]
         public string NoTelephone { get; set; }
+
+        [Display(Name = "Matricule")]
+        public override string UserName
+        {
+            get
+            {
+                return base.UserName;
+            }
+
+            set
+            {
+                base.UserName = value;
+            }
+        }
 
         public virtual List<Objet> Objets { get; set; }
 

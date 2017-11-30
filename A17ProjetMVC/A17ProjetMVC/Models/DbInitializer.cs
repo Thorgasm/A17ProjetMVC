@@ -8,17 +8,22 @@ using System.Web;
 
 namespace A17ProjetMVC.Models
 {
-    public class DbInitializer : DropCreateDatabaseAlways<ApplicationDbContext>
+    public class DbInitializer : DropCreateDatabaseIfModelChanges<ApplicationDbContext>
     {
         protected override void Seed(ApplicationDbContext context)
         {
             UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
             RoleManager<IdentityRole> RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
-            ApplicationUser user = new ApplicationUser();
-            user.Email = "admin@test.com";
-            user.UserName = "admin@test.com";
-            IdentityResult result = UserManager.Create(user, "password");
+            ApplicationUser user_admin = new ApplicationUser();
+            user_admin.Email = "admin@web.com";
+            user_admin.UserName = "administrateur";
+            IdentityResult result = UserManager.Create(user_admin, "12345");
+
+            ApplicationUser user_member = new ApplicationUser();
+            user_member.Email = "user@web.com";
+            user_member.UserName = "1234567";
+            IdentityResult result2 = UserManager.Create(user_member, "pass");
 
             Categorie cat1 = new Categorie();
             cat1.CategorieID = 1;

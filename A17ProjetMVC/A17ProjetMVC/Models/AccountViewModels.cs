@@ -50,9 +50,8 @@ namespace A17ProjetMVC.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Courrier électronique")]
-        [EmailAddress]
-        public string Email { get; set; }
+        [Display(Name = "Matricule")]
+        public string Matricule { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
