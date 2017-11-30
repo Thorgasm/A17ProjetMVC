@@ -216,6 +216,8 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Objet.cs" />
+    <Compile Include="Models\StatistiquesVM.cs" />
+    <Compile Include="Models\TopMemberVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -293,6 +295,7 @@
     <Content Include="Views\Emprunt\Details.cshtml" />
     <Content Include="Views\Emprunt\Index.cshtml" />
     <Content Include="Views\Objets\EvalEmprunt.cshtml" />
+    <Content Include="Views\Objets\Statistiques.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

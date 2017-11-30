@@ -6,8 +6,15 @@ using System.Web;
 
 namespace A17ProjetMVC.DAL
 {
+    public enum TimeSpace
+    {
+        SEMAINE,
+        MOIS
+    }
+
     public static class ObjetRepository
     {
+
         public static List<Objet> GetAvailableObjets(this GenericRepository<Objet> repo)
         {
             List<int> lstObjets = repo.context.Emprunts.Select(e => e.ObjetID).ToList();
@@ -62,9 +69,18 @@ namespace A17ProjetMVC.DAL
             return top;
         }
 
-        public static List<ApplicationUser> getTopMembres(this GenericRepository<Objet> repo)
+        public static List<TopMemberVM> getTopMembres(this GenericRepository<Objet> repo, TimeSpace pTimeSpace)
         {
-            List<ApplicationUser> lstO = repo.context.Users.OrderByDescending(m => m.Objets.Count()).ToList();
+            DateTime min = DateTime.Now;
+            if (pTimeSpace == TimeSpace.MOIS)
+            {
+                min.AddDays(-30);
+            }
+            else if (pTimeSpace == TimeSpace.SEMAINE)
+            {
+                min.AddDays(-7);
+            }
+            List<TopMemberVM> lstO = repo.context.Users.Select(a => new TopMemberVM { User = a, ObjetCount = a.Objets.Count() }).OrderByDescending(a => a.ObjetCount).Take(5).ToList();
 
             return lstO;
         }
