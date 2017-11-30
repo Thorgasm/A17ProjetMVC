@@ -292,6 +292,7 @@
     <Content Include="Views\Emprunt\Delete.cshtml" />
     <Content Include="Views\Emprunt\Details.cshtml" />
     <Content Include="Views\Emprunt\Index.cshtml" />
+    <Content Include="Views\Objets\EvalEmprunt.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
