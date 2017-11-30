@@ -73,7 +73,7 @@ namespace A17ProjetMVC.Controllers
         {
             return View(unitOfWork.ObjetRepository.getTopMembres(TimeSpace.SEMAINE));
         }
-
+        [Route("Statistiques")]
         public ActionResult Statistiques()
         {
             StatistiquesVM svm = new StatistiquesVM();
