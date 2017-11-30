@@ -82,6 +82,7 @@ namespace A17ProjetMVC.Models
 
         [Required]
         [Phone]
+        [Display(Name = "Numéro de téléphone")]
         public string NumeroTelephone { get; set; }
 
         [Required]
