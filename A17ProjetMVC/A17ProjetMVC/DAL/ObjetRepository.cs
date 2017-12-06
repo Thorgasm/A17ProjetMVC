@@ -106,10 +106,4 @@ namespace A17ProjetMVC.DAL
             return lstM;
         }
     }
-    public class MoyennesOBJ
-    {
-        public string UserID { get; set; }
-
-        public Decimal moyenne { get; set; }
-    }
 }
