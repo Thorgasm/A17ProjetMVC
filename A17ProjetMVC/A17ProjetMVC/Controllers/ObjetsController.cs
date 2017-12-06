@@ -26,7 +26,6 @@ namespace A17ProjetMVC.Controllers
         [AllowAnonymous]
         public ActionResult Index()
         {
-
             List<Categorie> lstCats = unitOfWork.CategorieRepository.Get().ToList();
             IEnumerable<SelectListItem> cats = new SelectList(lstCats, "CategorieID", "Nom");
 
@@ -38,6 +37,22 @@ namespace A17ProjetMVC.Controllers
             ViewBag.Categories = cats;
             return View(unitOfWork.ObjetRepository.GetObjetsByCat(int.Parse(cat)));
         }
+
+        [Route("myObjects")]
+        public ActionResult MesObjets()
+        {
+            List<Categorie> lstCats = unitOfWork.CategorieRepository.Get().ToList();
+            IEnumerable<SelectListItem> cats = new SelectList(lstCats, "CategorieID", "Nom");
+
+            string cat;
+            if (Request["CategorieID"] != null)
+                cat = Request["CategorieID"].ToString();
+            else cat = "1";
+
+            ViewBag.Categories = cats;
+            return View(unitOfWork.ObjetRepository.GetObjetsByCat(int.Parse(cat)).Where(m => m.UserID == User.Identity.GetUserId()));
+        }
+
         [HttpPost]
         [AllowAnonymous]
         public ActionResult Index(FormCollection form)

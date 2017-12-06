@@ -287,7 +287,7 @@
     <Content Include="Views\Objets\Edit.cshtml" />
     <Content Include="Views\Objets\Emprunt.cshtml" />
     <Content Include="Views\Objets\Index.cshtml" />
-    <Content Include="Views\Objets\MyObjects.cshtml" />
+    <Content Include="Views\Objets\MesObjets.cshtml" />
     <Content Include="Views\Objets\ObjetsDispo.cshtml" />
     <Content Include="Views\Objets\Top5Objets.cshtml" />
     <Content Include="Views\Objets\TopMembres.cshtml" />
