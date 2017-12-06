@@ -168,7 +168,7 @@ namespace A17ProjetMVC.Controllers
             {
                 //unitOfWork.Repo<Objet>().context.Objets.Add(objet);                
                 //unitOfWork.Repo<Objet>().context.SaveChanges();
-                Objet a = new Objet { ObjetID = objet.ObjetID, NomObjet = objet.NomObjet, CategorieID = objet.CategorieID, Description = objet.Description};
+                Objet a = new Objet { ObjetID = objet.ObjetID, NomObjet = objet.NomObjet, CategorieID = objet.CategorieID, Description = objet.Description, DatePublication = DateTime.Now, estDisponible = true};
                 unitOfWork.ObjetRepository.AddtoCurMembre(a,User.Identity.GetUserId());
                 return RedirectToAction("Index");
             }
