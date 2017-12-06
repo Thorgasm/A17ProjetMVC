@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<A17ProjetMVC.Models.Objet>
+@using Microsoft.AspNet.Identity;
 
 @{
 	ViewBag.Title = "Tout les objets";
@@ -56,8 +57,11 @@
                         @Html.DisplayFor(modelItem => item.Categorie.Nom)
                     </td>
                     <td style="text-align: right; text-align:center">
-                        @Html.ActionLink("Details", "Details", new { id = item.ObjetID }) |
-                        @Html.ActionLink("Emprunt", "Emprunt", new { id = item.ObjetID });
+                        @Html.ActionLink("Details", "Details", new { id = item.ObjetID }) | 
+                        @if (item.estDisponible == true && item.UserID != User.Identity.GetUserId())
+                        {
+                            @Html.ActionLink("Emprunt", "Emprunt", new { id = item.ObjetID })
+                        }
                     </td>
                 </tr>
             }
