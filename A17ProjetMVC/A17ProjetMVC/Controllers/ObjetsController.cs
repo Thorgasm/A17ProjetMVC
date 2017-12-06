@@ -69,16 +69,12 @@ namespace A17ProjetMVC.Controllers
             ViewBag.Categories = cats;
             return View(unitOfWork.ObjetRepository.GetObjetsByCat(int.Parse(cat)));
         }
+
         [Route("ObjetsDispo")]
         [AllowAnonymous]
         public ActionResult ObjetsDispo()
         {
             return View(unitOfWork.ObjetRepository.GetAvailableObjets());
-        }
-        [Route("MesObjets")]
-        public ActionResult MyObjects()
-        {
-            return View(unitOfWork.ObjetRepository.GetMyObjects(User.Identity.GetUserId()));
         }
         [Route("TopObjets")]
         [AllowAnonymous]

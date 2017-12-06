@@ -17,9 +17,7 @@ namespace A17ProjetMVC.DAL
 
         public static List<Objet> GetAvailableObjets(this GenericRepository<Objet> repo)
         {
-            List<int> lstObjets = repo.context.Emprunts.Select(e => e.ObjetID).ToList();
-
-            List<Objet> lst = repo.context.Objets.Where(o => !lstObjets.Contains(o.ObjetID)).ToList();
+            List<Objet> lst = repo.context.Objets.Where(o => o.estDisponible).ToList();
 
             return lst;
         }
