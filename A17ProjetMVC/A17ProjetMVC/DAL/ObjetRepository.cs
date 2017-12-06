@@ -37,7 +37,10 @@ namespace A17ProjetMVC.DAL
         {
             ApplicationUser a = repo.context.Users.Where(m => m.Id == UserID).First();
 
-            a.Objets.Add(ob);
+            ob.User = a;
+            repo.Insert(ob);
+
+            //a.Objets.Add(ob);
             repo.context.SaveChanges();
             
             return true;
