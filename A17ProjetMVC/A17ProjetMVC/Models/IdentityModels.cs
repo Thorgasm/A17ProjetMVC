@@ -21,6 +21,7 @@ namespace A17ProjetMVC.Models
         public string Adresse { get; set; }
 
         [Display(Name = "Numéro de téléphone")]
+        [Phone]
         public override string PhoneNumber
         {
             get

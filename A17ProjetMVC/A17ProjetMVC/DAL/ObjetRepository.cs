@@ -75,15 +75,40 @@ namespace A17ProjetMVC.DAL
             DateTime min = DateTime.Now;
             if (pTimeSpace == TimeSpace.MOIS)
             {
-                min.AddDays(-30);
+                min = min.AddDays(-30);
             }
             else if (pTimeSpace == TimeSpace.SEMAINE)
             {
-                min.AddDays(-7);
+                min = min.AddDays(-7);
             }
-            List<TopMemberVM> lstO = repo.context.Users.Select(a => new TopMemberVM { User = a, ObjetCount = a.Objets.Count() }).OrderByDescending(a => a.ObjetCount).Take(5).ToList();
+            List<TopMemberVM> lstO = repo.context.Users.Select(a => new TopMemberVM { User = a, ObjetCount = a.Objets.Where(b => b.DatePublication > min).Count() }).OrderByDescending(a => a.ObjetCount).Where(a => a.ObjetCount > 0).Take(5).ToList();
 
             return lstO;
+        }
+
+        public static List<TopCategorieVM> getTopCategories(this GenericRepository<Objet> repo, TimeSpace pTimeSpace, bool pPlus)
+        {
+            DateTime min = DateTime.Now;
+            if (pTimeSpace == TimeSpace.MOIS)
+            {
+                min = min.AddDays(-30);
+            }
+            else if (pTimeSpace == TimeSpace.SEMAINE)
+            {
+                min = min.AddDays(-7);
+            }
+            List<TopCategorieVM> lstC = null;
+
+            if (pPlus)
+            {
+                lstC = repo.context.Categories.Select(a => new TopCategorieVM { Categorie = a, Count = a.Objets.Where(b => b.DatePublication > min).Count() }).OrderByDescending(a => a.Count).Take(5).ToList();
+            }
+            else
+            {
+                lstC = repo.context.Categories.Select(a => new TopCategorieVM { Categorie = a, Count = a.Objets.Where(b => b.DatePublication > min).Count() }).OrderBy(a => a.Count).Take(5).ToList();
+            }
+
+            return lstC;
         }
 
     }

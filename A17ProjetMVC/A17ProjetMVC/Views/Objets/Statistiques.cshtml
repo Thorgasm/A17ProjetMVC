@@ -92,3 +92,118 @@
 </div>
 
 
+<h2>Top Catégories</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <h3>Top 5 catégories les plus sollicitées du mois</h3>
+            <table class="table">
+                <tr>
+                    <th>
+                        Catégorie
+                    </th>
+                    <th>
+                        Nb D'objets
+                    </th>
+                </tr>
+
+                @foreach (var item in Model.Top5CategorieMoisBest)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Categorie.Nom)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Count)
+                        </td>
+
+                    </tr>
+                }
+
+            </table>
+        </div>
+        <div class="col-md-3">
+            <h3>Top 5 catégories les plus sollicitées de la semaine</h3>
+            <table class="table">
+                <tr>
+                    <th>
+                        Catégorie
+                    </th>
+                    <th>
+                        Nb D'objets
+                    </th>
+                </tr>
+
+                @foreach (var item in Model.Top5CategorieSemaineBest)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Categorie.Nom)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Count)
+                        </td>
+
+                    </tr>
+                }
+
+            </table>
+        </div>
+        <div class="col-md-3">
+            <h3>Top 5 catégories les moins sollicitées du mois</h3>
+            <table class="table">
+                <tr>
+                    <th>
+                        Catégorie
+                    </th>
+                    <th>
+                        Nb D'objets
+                    </th>
+                </tr>
+
+                @foreach (var item in Model.Top5CategorieMoisLeast)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Categorie.Nom)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Count)
+                        </td>
+
+                    </tr>
+                }
+
+            </table>
+        </div>
+        <div class="col-md-3">
+            <h3>Top 5 catégories les moins sollicitées de la semaine</h3>
+            <table class="table">
+                <tr>
+                    <th>
+                        Catégorie
+                    </th>
+                    <th>
+                        Nb D'objets
+                    </th>
+                </tr>
+
+                @foreach (var item in Model.Top5CategorieSemaineLeast)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Categorie.Nom)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Count)
+                        </td>
+
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>
+

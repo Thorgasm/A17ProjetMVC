@@ -27,6 +27,7 @@ namespace A17ProjetMVC.Models
         [ForeignKey("User")]
         public string UserID { get; set; }
 
+        [DataType(DataType.DateTime)]
         public DateTime DatePublication { get; set; }
 
         public virtual Categorie Categorie { get; set; }

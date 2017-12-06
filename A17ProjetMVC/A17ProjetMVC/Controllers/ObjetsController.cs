@@ -95,6 +95,10 @@ namespace A17ProjetMVC.Controllers
             StatistiquesVM svm = new StatistiquesVM();
             svm.Top5MembreGenereuxSemaine = unitOfWork.ObjetRepository.getTopMembres(TimeSpace.SEMAINE);
             svm.Top5MembreGenereuxMois = unitOfWork.ObjetRepository.getTopMembres(TimeSpace.MOIS);
+            svm.Top5CategorieSemaineBest = unitOfWork.ObjetRepository.getTopCategories(TimeSpace.SEMAINE, true);
+            svm.Top5CategorieSemaineLeast = unitOfWork.ObjetRepository.getTopCategories(TimeSpace.SEMAINE, false);
+            svm.Top5CategorieMoisBest = unitOfWork.ObjetRepository.getTopCategories(TimeSpace.MOIS, true);
+            svm.Top5CategorieMoisLeast = unitOfWork.ObjetRepository.getTopCategories(TimeSpace.MOIS, false);
             return View(svm);
 
         }
