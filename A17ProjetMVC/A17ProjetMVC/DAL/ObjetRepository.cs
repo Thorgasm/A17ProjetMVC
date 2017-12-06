@@ -17,9 +17,7 @@ namespace A17ProjetMVC.DAL
 
         public static List<Objet> GetAvailableObjets(this GenericRepository<Objet> repo)
         {
-            List<int> lstObjets = repo.context.Emprunts.Select(e => e.ObjetID).ToList();
-
-            List<Objet> lst = repo.context.Objets.Where(o => !lstObjets.Contains(o.ObjetID)).ToList();
+            List<Objet> lst = repo.context.Objets.Where(o => o.estDisponible).ToList();
 
             return lst;
         }
@@ -37,7 +35,10 @@ namespace A17ProjetMVC.DAL
         {
             ApplicationUser a = repo.context.Users.Where(m => m.Id == UserID).First();
 
-            a.Objets.Add(ob);
+            ob.User = a;
+            repo.Insert(ob);
+
+            //a.Objets.Add(ob);
             repo.context.SaveChanges();
             
             return true;

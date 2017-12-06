@@ -14,6 +14,7 @@ namespace A17ProjetMVC.Models
         [Key]
         public int ObjetID { get; set; }
         
+        [Display(Name = "Nom objet")]
         public string NomObjet { get; set; }
 
         public string Description { get; set; }

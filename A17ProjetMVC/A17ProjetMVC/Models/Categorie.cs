@@ -10,6 +10,7 @@ namespace A17ProjetMVC.Models
     [Table("Categorie")]
     public class Categorie
     {
+        [Key]
         public int CategorieID { get; set; }
 
         [Display(Name = "Categorie")]

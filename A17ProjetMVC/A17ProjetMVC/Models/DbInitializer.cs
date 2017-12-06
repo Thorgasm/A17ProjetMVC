@@ -12,18 +12,22 @@ namespace A17ProjetMVC.Models
     {
         protected override void Seed(ApplicationDbContext context)
         {
-            UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+            UserManager<ApplicationUser> UserManager = new ApplicationUserManager(new UserStore<ApplicationUser>(context));
             RoleManager<IdentityRole> RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
-            ApplicationUser user_admin = new ApplicationUser();
-            user_admin.Email = "admin@web.com";
-            user_admin.UserName = "administrateur";
-            IdentityResult result = UserManager.Create(user_admin, "12345");
+            var user = new ApplicationUser { UserName = "1234567", Email = "admin@test.com" };
+            user.Adresse = "666";
+            user.Nom = "G";
+            user.Prenom = "P";
+            user.PhoneNumber = "4542345432";
+            UserManager.Create(user, "pass");
 
-            ApplicationUser user_member = new ApplicationUser();
-            user_member.Email = "user@web.com";
-            user_member.UserName = "1234567";
-            IdentityResult result2 = UserManager.Create(user_member, "pass");
+            //var user2 = new ApplicationUser { UserName = "1234568", Email = "user@test.com" };
+            //user2.Adresse = "666";
+            //user2.Nom = "G";
+            //user2.Prenom = "P";
+            //user2.PhoneNumber = "4542345432";
+            //UserManager.Create(user2, "pass");
 
             Categorie cat1 = new Categorie();
             cat1.CategorieID = 1;
