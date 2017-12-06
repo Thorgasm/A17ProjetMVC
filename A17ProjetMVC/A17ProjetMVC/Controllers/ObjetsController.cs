@@ -114,6 +114,7 @@ namespace A17ProjetMVC.Controllers
             if (ModelState.IsValid)
             {
                 int id = int.Parse(form["objetID"].ToString());
+                unitOfWork.ObjetRepository.GetByID(id).estDisponible = false;
                 Emprunt e = new Emprunt(User.Identity.GetUserId(), id);
                 e.DateDebut = DateTime.Now;
                 string a = form["nbJours"].ToString();
