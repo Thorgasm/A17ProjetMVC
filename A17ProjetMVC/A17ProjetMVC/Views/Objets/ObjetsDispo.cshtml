@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<A17ProjetMVC.Models.Objet>
+@using Microsoft.AspNet.Identity;
 
 @{
     ViewBag.Title = "ObjetsDispo";
@@ -6,9 +7,6 @@
 
 <h2>ObjetsDispo</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -29,8 +27,11 @@
             @Html.DisplayFor(i => item.Categorie.Nom)
         </td>
         <td>
-            @Html.ActionLink("Details", "Details", new { id=item.ObjetID }) | 
-            @Html.ActionLink("Emprunt", "Emprunt", new { id = item.ObjetID })
+            @Html.ActionLink("Details", "Details", new { id=item.ObjetID }) |
+            @if (item.UserID != User.Identity.GetUserId())
+            {
+                @Html.ActionLink("Emprunt", "Emprunt", new { id = item.ObjetID })
+            }
         </td>
     </tr>
 }
