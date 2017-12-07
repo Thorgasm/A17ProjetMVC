@@ -14,7 +14,7 @@ namespace A17ProjetMVC.Models
         [Key]
         public int ObjetID { get; set; }
         
-        [Display(Name = "Nom objet")]
+        [Display(Name = "ObjectName", ResourceType = typeof(Resources.site))]
         public string NomObjet { get; set; }
 
         public string Description { get; set; }

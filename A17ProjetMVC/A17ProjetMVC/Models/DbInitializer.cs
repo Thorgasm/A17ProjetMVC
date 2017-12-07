@@ -8,14 +8,14 @@ using System.Web;
 
 namespace A17ProjetMVC.Models
 {
-    public class DbInitializer : DropCreateDatabaseAlways<ApplicationDbContext>
+    public class DbInitializer : DropCreateDatabaseIfModelChanges<ApplicationDbContext>
     {
         protected override void Seed(ApplicationDbContext context)
         {
             UserManager<ApplicationUser> UserManager = new ApplicationUserManager(new UserStore<ApplicationUser>(context));
             RoleManager<IdentityRole> RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
-            for(int i = 0; i < 1000; i++)
+            for(int i = 0; i < 10; i++)
             {
                 string matricule = (1000000 + i) + "";
 
