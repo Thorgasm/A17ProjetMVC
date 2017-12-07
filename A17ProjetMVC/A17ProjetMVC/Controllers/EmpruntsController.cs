@@ -39,7 +39,7 @@ namespace A17ProjetMVC.Controllers
             return View(emprunt);
         }
 
-        [Route("MesObjets")]
+        [Route("MesEmprunts")]
         public ActionResult MesEmprunts()
         {
             var userID = User.Identity.GetUserId();
