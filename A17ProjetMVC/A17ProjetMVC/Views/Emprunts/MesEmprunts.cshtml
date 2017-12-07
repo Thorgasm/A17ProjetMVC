@@ -1,0 +1,41 @@
+﻿@model IEnumerable<A17ProjetMVC.Models.Emprunt>
+
+@{
+    ViewBag.Title = "MesEmprunts";
+}
+
+<h2>MesEmprunts</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Objet.NomObjet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.Nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateDebut)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Objet.NomObjet)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.Nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateDebut)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id=item.EmpruntID }) |
+            @Html.ActionLink("Remettre", "Remettre", new { id=item.EmpruntID })
+        </td>
+    </tr>
+}
+
+</table>

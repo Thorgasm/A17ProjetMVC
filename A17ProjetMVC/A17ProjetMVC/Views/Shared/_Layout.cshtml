@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNet.Identity;
+
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -28,10 +30,11 @@
                     }
                     else
                     {
-                        <li>@Html.ActionLink("Accueil", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Accueil", "Index", "Objets")</li>
                         <li>@Html.ActionLink("Mes objets", "MesObjets", "Objets")</li>
-                        <li>@Html.ActionLink("ObjetsDispo", "ObjetsDispo", "Objets")</li>
+                        <li>@Html.ActionLink("Objets Dispos", "ObjetsDispo", "Objets")</li>
                         <li>@Html.ActionLink("Statistiques", "Statistiques", "Objets")</li>
+                        <li>@Html.ActionLink("Mes Emprunts", "MesEmprunts", "Emprunts")</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
