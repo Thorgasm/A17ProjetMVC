@@ -8,7 +8,7 @@ using System.Web;
 
 namespace A17ProjetMVC.Models
 {
-    public class DbInitializer : DropCreateDatabaseAlways<ApplicationDbContext>
+    public class DbInitializer : DropCreateDatabaseIfModelChanges<ApplicationDbContext>
     {
         protected override void Seed(ApplicationDbContext context)
         {

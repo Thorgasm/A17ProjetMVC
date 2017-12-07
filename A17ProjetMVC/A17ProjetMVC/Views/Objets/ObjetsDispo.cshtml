@@ -29,7 +29,8 @@
             @Html.DisplayFor(i => item.Categorie.Nom)
         </td>
         <td>
-            @Html.ActionLink("Details", "Details", new { id=item.ObjetID })
+            @Html.ActionLink("Details", "Details", new { id=item.ObjetID }) | 
+            @Html.ActionLink("Emprunt", "Emprunt", new { id = item.ObjetID })
         </td>
     </tr>
 }

@@ -293,11 +293,13 @@
     <Content Include="Views\Objets\ObjetsDispo.cshtml" />
     <Content Include="Views\Objets\Top5Objets.cshtml" />
     <Content Include="Views\Objets\TopMembres.cshtml" />
-    <Content Include="Views\Emprunt\Delete.cshtml" />
-    <Content Include="Views\Emprunt\Details.cshtml" />
-    <Content Include="Views\Emprunt\Index.cshtml" />
+    <Content Include="Views\Emprunts\Delete.cshtml" />
+    <Content Include="Views\Emprunts\Details.cshtml" />
+    <Content Include="Views\Emprunts\Index.cshtml" />
     <Content Include="Views\Objets\EvalEmprunt.cshtml" />
     <Content Include="Views\Objets\Statistiques.cshtml" />
+    <Content Include="Views\Emprunts\MesEmprunts.cshtml" />
+    <Content Include="Views\Emprunts\EmpruntNote.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
