@@ -49,6 +49,7 @@ namespace A17ProjetMVC.Controllers
             return View("MesEmprunts", result);
         }
 
+        [HttpGet,Route("Remettre")]
         public ActionResult Remettre(int? id)
         {
             if (id == null)
@@ -67,7 +68,7 @@ namespace A17ProjetMVC.Controllers
             return View("EmpruntNote", emprunt);
         }
 
-        [HttpPost, ActionName("Remettre")]
+        [HttpPost, Route("Remettre")]
         [ValidateAntiForgeryToken]
         public ActionResult RemettreConfirmed(int id, FormCollection form)
         {
