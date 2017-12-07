@@ -122,11 +122,12 @@ namespace A17ProjetMVC.DAL
             {
                 min.AddDays(-7);
             }
-            List<TopMembresAprecieVM> lstM = repo.context.Emprunts
+            List<TopMembresAprecieVM> lstM = lstM = repo.context.Emprunts
                 .GroupBy(u => u.User)
-                .Select(u => new TopMembresAprecieVM { AverageNotes = u.Key.Emprunts.Average(av => av.NoteService), User = u.Key })
+                .Select(u => new TopMembresAprecieVM { AverageNotes = u.Key.Emprunts.Where(e => e.DateFin > min).Average(av => av.NoteService), User = u.Key })
                 .OrderByDescending(a => a.AverageNotes).Take(5)
                 .ToList();
+            
 
 
             return lstM;

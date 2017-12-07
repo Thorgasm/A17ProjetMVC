@@ -14,6 +14,8 @@ namespace A17ProjetMVC.Models
         public IEnumerable<TopCategorieVM> Top5CategorieSemaineBest { get; set; }
         public IEnumerable<TopCategorieVM> Top5CategorieMoisLeast { get; set; }
         public IEnumerable<TopCategorieVM> Top5CategorieSemaineLeast { get; set; }
+        public IEnumerable<TopMembresAprecieVM> Top5MembresApreciesMois { get; set; }
+        public IEnumerable<TopMembresAprecieVM> Top5MembresApreciesSemaine{ get; set; }
 
 
     }

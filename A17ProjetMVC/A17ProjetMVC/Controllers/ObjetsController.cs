@@ -99,6 +99,8 @@ namespace A17ProjetMVC.Controllers
             svm.Top5CategorieSemaineLeast = unitOfWork.ObjetRepository.getTopCategories(TimeSpace.SEMAINE, false);
             svm.Top5CategorieMoisBest = unitOfWork.ObjetRepository.getTopCategories(TimeSpace.MOIS, true);
             svm.Top5CategorieMoisLeast = unitOfWork.ObjetRepository.getTopCategories(TimeSpace.MOIS, false);
+            svm.Top5MembresApreciesMois = unitOfWork.ObjetRepository.getTopMembresAprecies(TimeSpace.MOIS);
+            svm.Top5MembresApreciesSemaine = unitOfWork.ObjetRepository.getTopMembresAprecies(TimeSpace.SEMAINE);
             return View(svm);
 
         }
