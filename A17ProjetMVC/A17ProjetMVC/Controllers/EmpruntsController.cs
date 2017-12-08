@@ -44,7 +44,7 @@ namespace A17ProjetMVC.Controllers
         {
             var userID = User.Identity.GetUserId();
 
-            var result = unitOfWork.EmpruntRepository.Get().Where(m => m.UserID == userID && m.Objet.estDisponible == false).ToList();
+            var result = unitOfWork.EmpruntRepository.Get().Where(m => m.UserID == userID && m.Objet.estDisponible == false && !m.EstRemis).ToList();
 
             return View("MesEmprunts", result);
         }
@@ -63,6 +63,7 @@ namespace A17ProjetMVC.Controllers
                 return HttpNotFound();
             }
             emprunt.DateFin = DateTime.Now;
+            emprunt.EstRemis = true;
             unitOfWork.Save();
 
             return View("EmpruntNote", emprunt);

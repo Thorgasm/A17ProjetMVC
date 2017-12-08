@@ -116,18 +116,18 @@ namespace A17ProjetMVC.DAL
             DateTime min = DateTime.Now;
             if (pTimeSpace == TimeSpace.MOIS)
             {
-                min.AddDays(-30);
+                min = min.AddDays(-30);
             }
             else if (pTimeSpace == TimeSpace.SEMAINE)
             {
-                min.AddDays(-7);
+                min = min.AddDays(-7);
             }
-            List<TopMembresAprecieVM> lstM = lstM = repo.context.Emprunts
+
+            List<TopMembresAprecieVM> lstM  = repo.context.Emprunts
                 .GroupBy(u => u.User)
-                .Select(u => new TopMembresAprecieVM { AverageNotes = u.Key.Emprunts.Where(e => e.DateFin > min).Average(av => av.NoteService), User = u.Key })
-                .OrderByDescending(a => a.AverageNotes).Take(5)
-                .ToList();
-            
+                .Select(u => new TopMembresAprecieVM { AverageNotes = u.Key.Emprunts.Where(e => e.DateFin != null && e.DateFin > min).Average(av => av.NoteService), User = u.Key })
+                .OrderByDescending(a => a.AverageNotes).Take(5) 
+                .ToList();           
 
 
             return lstM;

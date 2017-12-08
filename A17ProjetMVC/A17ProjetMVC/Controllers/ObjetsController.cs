@@ -132,6 +132,7 @@ namespace A17ProjetMVC.Controllers
                 e.UserID = User.Identity.GetUserId();
                 e.Objet = unitOfWork.ObjetRepository.GetByID(id);
                 e.User = unitOfWork.UserRepository.GetByID(User.Identity.GetUserId());
+                e.EstRemis = false;
                 unitOfWork.EmpruntRepository.Insert(e);
                 unitOfWork.Save();
                 return RedirectToAction("Index");

@@ -24,7 +24,9 @@ namespace A17ProjetMVC.Models
         public DateTime DateDebut { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime DateFin { get; set; }     
+        public DateTime DateFin { get; set; }
+
+        public Boolean EstRemis { get; set; }
         
         [Range(0,5)]
         public int NoteService { get; set; }   
