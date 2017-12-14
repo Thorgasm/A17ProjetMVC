@@ -123,14 +123,25 @@ namespace A17ProjetMVC.DAL
                 min = min.AddDays(-7);
             }
 
-            List<TopMembresAprecieVM> lstM  = repo.context.Emprunts
-                .GroupBy(u => u.User)
-                .Select(u => new TopMembresAprecieVM { AverageNotes = u.Key.Emprunts.Where(e => e.DateFin != null && e.DateFin > min).Average(av => av.NoteService), User = u.Key })
-                .OrderByDescending(a => a.AverageNotes).Take(5) 
-                .ToList();           
+            List<ApplicationUser> test = repo.context.Users.ToList();
+            List<Objet> obj = repo.context.Objets.ToList();
+            List<Emprunt> em = repo.context.Emprunts.ToList();
+            List<Categorie> cat = repo.context.Categories.ToList();
 
+            //var membres = repo.context.Users.ToList();
 
-            return lstM;
+            if (repo.context.Users.ToList().Count() != 0)
+            {
+
+                List<TopMembresAprecieVM> lstM = repo.context.Emprunts
+                    .GroupBy(u => u.User)
+                    .Select(u => new TopMembresAprecieVM { AverageNotes = u.Key.Emprunts.Where(e => e.DateFin != null && e.DateFin > min).Average(av => av.NoteService), User = u.Key })
+                    .OrderByDescending(a => a.AverageNotes).Take(5)
+                    .ToList();
+
+                return lstM;
+            }
+            return new List<TopMembresAprecieVM>();
         }
     }
 }

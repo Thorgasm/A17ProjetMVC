@@ -27,85 +27,129 @@ namespace A17ProjetMVC_Tests.Controllers
         public async void SetUp()
         {
 
-            mockContext = EntityFrameworkMockHelper.GetMockContext<ApplicationDbContext>();       
+            mockContext = EntityFrameworkMockHelper.GetMockContext<ApplicationDbContext>();
+
+            var objets = new List<Objet>
+            {
+            new Objet { CategorieID = 1, DatePublication = DateTime.Now, ObjetID = 1, Description = "un objet de test", NomObjet = "Objet1", estDisponible = true, UserID = "1" },
+            new Objet { CategorieID = 1, DatePublication = DateTime.Now, ObjetID = 2, Description = "un objet de test", NomObjet = "Objet1", estDisponible = false, UserID = "1" },
+            new Objet { CategorieID = 2, DatePublication = DateTime.Now, ObjetID = 3, Description = "un objet de test", NomObjet = "Objet1", estDisponible = true, UserID = "1" },
+            new Objet { CategorieID = 2, DatePublication = DateTime.Now, ObjetID = 4, Description = "un objet de test", NomObjet = "Objet1", estDisponible = false, UserID = "2" },
+            new Objet { CategorieID = 2, DatePublication = DateTime.Now, ObjetID = 5, Description = "un objet de test", NomObjet = "Objet1", estDisponible = true, UserID = "2" },
+            new Objet { CategorieID = 3, DatePublication = DateTime.Now, ObjetID = 6, Description = "un objet de test", NomObjet = "Objet1", estDisponible = false, UserID = "3" }
+            }.AsQueryable();
+
+            mockContext.Object.Objets.AddRange(objets);
 
             var users = new List<ApplicationUser>();
 
 
-            users.Add(new ApplicationUser() { Id = "1", UserName = "1000001", Email = "1000001", Adresse = "666", Nom = "1000001", Prenom = "User1", PhoneNumber = "5145145144", Objets = new List<Objet>(), Emprunts = new List<Emprunt>() });
-            users.Add(new ApplicationUser() { Id = "2", UserName = "1000002", Email = "1000002", Adresse = "666", Nom = "1000002", Prenom = "User2", PhoneNumber = "5145145155", Objets = new List<Objet>(), Emprunts = new List<Emprunt>() });
+            users.Add(new ApplicationUser() { Id = "1", UserName = "1000001", Email = "1000001", Adresse = "666", Nom = "1000001", Prenom = "User1", PhoneNumber = "5145145144", Objets = new List<Objet>() { objets.ElementAt(0), objets.ElementAt(1), objets.ElementAt(2) }, Emprunts = new List<Emprunt>() });
+            users.Add(new ApplicationUser() { Id = "2", UserName = "1000002", Email = "1000002", Adresse = "666", Nom = "1000002", Prenom = "User2", PhoneNumber = "5145145155", Objets = new List<Objet>() { objets.ElementAt(3), objets.ElementAt(4) }, Emprunts = new List<Emprunt>() });
             users.Add(new ApplicationUser() { Id = "3", UserName = "1000003", Email = "1000003", Adresse = "666", Nom = "1000003", Prenom = "User3", PhoneNumber = "5145145155", Objets = new List<Objet>(), Emprunts = new List<Emprunt>() });
             users.Add(new ApplicationUser() { Id = "4", UserName = "1000004", Email = "1000004", Adresse = "666", Nom = "1000004", Prenom = "User4", PhoneNumber = "5145145155", Objets = new List<Objet>(), Emprunts = new List<Emprunt>() });
-            users.Add(new ApplicationUser() { Id = "5", UserName = "1000005", Email = "1000005", Adresse = "666", Nom = "1000005", Prenom = "User5", PhoneNumber = "5145145155", Objets = new List<Objet>(), Emprunts = new List<Emprunt>() });
+            users.Add(new ApplicationUser() { Id = "5", UserName = "1000005", Email = "1000005", Adresse = "666", Nom = "1000005", Prenom = "User5", PhoneNumber = "5145145155", Objets = new List<Objet>() { objets.ElementAt(5) }, Emprunts = new List<Emprunt>() });
 
             var mockSetUsers = DbSetMocking.CreateMockSet<ApplicationUser>(users);
 
             mockContext.Setup(c => c.Users).Returns(mockSetUsers.Object);
+            
 
             var categories = new List<Categorie>
             {
-                new Categorie {CategorieID = 1, Nom = "Divers" },
-                new Categorie {CategorieID = 2, Nom = "Decorations" },
-                new Categorie {CategorieID = 3, Nom = "Sports" }
+                new Categorie {CategorieID = 1, Nom = "Divers" , Objets = new List<Objet>() { objets.ElementAt(0), objets.ElementAt(1) } },
+                new Categorie {CategorieID = 2, Nom = "Decorations", Objets = new List<Objet>() {  objets.ElementAt(2), objets.ElementAt(3), objets.ElementAt(4) } },
+                new Categorie {CategorieID = 3, Nom = "Sports", Objets = new List<Objet>() {  objets.ElementAt(5)} }
             }.AsQueryable();
 
             mockContext.Object.Categories.AddRange(categories);
 
 
-            /*mockContext.Object.Users.Add(user1);
-            mockContext.Object.Users.Add(user2);
-            mockContext.Object.Users.Add(user3);
-            mockContext.Object.Users.Add(user4);
-            mockContext.Object.Users.Add(user5);*/
-
-            var objet1 = new Objet { CategorieID = 1, DatePublication = DateTime.Now, ObjetID = 1, Description = "un objet de test", NomObjet = "Objet1", estDisponible = true };
-            var objet2 = new Objet { CategorieID = 1, DatePublication = DateTime.Now, ObjetID = 1, Description = "un objet de test", NomObjet = "Objet1", estDisponible = true };
-            var objet3 = new Objet { CategorieID = 1, DatePublication = DateTime.Now, ObjetID = 1, Description = "un objet de test", NomObjet = "Objet1", estDisponible = true };
-            var objet4 = new Objet { CategorieID = 1, DatePublication = DateTime.Now, ObjetID = 1, Description = "un objet de test", NomObjet = "Objet1", estDisponible = true };
-            var objet5 = new Objet { CategorieID = 1, DatePublication = DateTime.Now, ObjetID = 1, Description = "un objet de test", NomObjet = "Objet1", estDisponible = true };
-            var objet6 = new Objet { CategorieID = 1, DatePublication = DateTime.Now, ObjetID = 1, Description = "un objet de test", NomObjet = "Objet1", estDisponible = true };
-
-            mockContext.Object.Users.ElementAt(0).Objets.Add(objet1);
-            mockContext.Object.Users.ElementAt(0).Objets.Add(objet2);
-            mockContext.Object.Users.ElementAt(1).Objets.Add(objet3);
-            mockContext.Object.Users.ElementAt(2).Objets.Add(objet4);
-            mockContext.Object.Users.ElementAt(3).Objets.Add(objet5);
-            mockContext.Object.Users.ElementAt(4).Objets.Add(objet6);
-
-            /*var emprunt1 = new Emprunt { ObjetID = 1, UserID = "1", NoteService = 1, DateFin = DateTime.Now };
-            var emprunt2 = new Emprunt { ObjetID = 1, UserID = "1", NoteService = 5, DateFin = DateTime.Now };
-
-
-            mockContext.Object.Emprunts.Add(emprunt1);
-            mockContext.Object.Emprunts.Add(emprunt2);*/
-
-
         }
+
+        //test fonctionnel mais MOCKCONTEXT.OBJECTS.USERS IS NULL
         [TestMethod]
-        public void Top5MembreApreciesSemaine()
+        public void TestTop5MembreApreciesSemaine()
         {
             SetUp();
-            var emprunt1 = new Emprunt { ObjetID = 1, UserID = "1", NoteService = 1, DateFin = DateTime.Now };
-            var emprunt2 = new Emprunt { ObjetID = 2, UserID = "1", NoteService = 5, DateFin = DateTime.Now };
-            var emprunt3 = new Emprunt { ObjetID = 3, UserID = "1", NoteService = 5, DateFin = DateTime.Now.AddMonths(-1) };            
+            var emprunts = new List<Emprunt>
+            {
+                new Emprunt { ObjetID = 1, UserID = "1", NoteService = 1, DateFin = DateTime.Now },
+                new Emprunt { ObjetID = 2, UserID = "1", NoteService = 5, DateFin = DateTime.Now },
+                new Emprunt { ObjetID = 3, UserID = "1", NoteService = 5, DateFin = DateTime.Now.AddMonths(-1) }
+            }.AsQueryable();             
 
 
-            mockContext.Object.Emprunts.Add(emprunt1);
-            mockContext.Object.Emprunts.Add(emprunt2);
-            mockContext.Object.Emprunts.Add(emprunt3);
+            mockContext.Object.Emprunts.AddRange(emprunts);
 
-            List<ApplicationUser> test = mockContext.Object.Users.ToList();
-            List<Objet> obj = mockContext.Object.Objets.ToList();
-            List<Emprunt> em = mockContext.Object.Emprunts.ToList();
-            List<Categorie> cat = mockContext.Object.Categories.ToList();
-            mockContext.Object.SaveChanges();
+            mockContext.Object.Users.Where(u => u.Id == "1").First().Emprunts.AddRange(emprunts);
 
             GenericRepository<Objet> a = new GenericRepository<Objet>(mockContext.Object);
 
             var lst = a.getTopMembresAprecies(TimeSpace.SEMAINE);
 
-            Assert.AreEqual(1, lst.Count);
-            
+            Assert.AreEqual(2, lst.Count);
+
+            Assert.AreEqual(3, lst.First().AverageNotes);
+
+
+        }
+        [TestMethod]
+        public void TestTopCategoriesPlus()
+        {
+            SetUp();
+
+            GenericRepository<Objet> a = new GenericRepository<Objet>(mockContext.Object);
+
+            var lst = a.getTopCategories(TimeSpace.SEMAINE,true);
+
+            Assert.AreEqual(lst[0].Count, 3);
+            Assert.AreEqual(lst[0].Categorie.Nom, "Decorations");
+
+            Assert.AreEqual(lst[1].Count, 2);
+            Assert.AreEqual(lst[1].Categorie.Nom, "Divers");
+
+            Assert.AreEqual(lst[2].Count, 1);
+            Assert.AreEqual(lst[2].Categorie.Nom, "Sports");
+
+
+        }
+
+        [TestMethod]
+        public void TestTopCategoriesMoins()
+        {
+            SetUp();
+
+            GenericRepository<Objet> a = new GenericRepository<Objet>(mockContext.Object);
+
+            var lst = a.getTopCategories(TimeSpace.SEMAINE, false);
+
+            Assert.AreEqual(lst[2].Count, 3);
+            Assert.AreEqual(lst[2].Categorie.Nom, "Decorations");
+
+            Assert.AreEqual(lst[1].Count, 2);
+            Assert.AreEqual(lst[1].Categorie.Nom, "Divers");
+
+            Assert.AreEqual(lst[0].Count, 1);
+            Assert.AreEqual(lst[0].Categorie.Nom, "Sports");
+
+
+        }
+
+        [TestMethod]
+        public void TestGetAvailableObjets()
+        {
+            SetUp();
+
+            GenericRepository<Objet> a = new GenericRepository<Objet>(mockContext.Object);
+
+            var lst = a.GetAvailableObjets();
+
+            Assert.AreEqual(lst.First(x => x.ObjetID == 1).ObjetID, 1);
+
+            Assert.AreEqual(lst.First(x => x.ObjetID == 3).ObjetID, 3);
+
+            Assert.AreEqual(lst.First(x => x.ObjetID == 5).ObjetID, 5);
 
         }
     }

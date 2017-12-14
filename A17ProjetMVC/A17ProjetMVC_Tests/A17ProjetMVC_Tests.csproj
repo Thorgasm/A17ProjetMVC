@@ -91,7 +91,6 @@
     <Compile Include="MockData\DbSetMocking.cs" />
     <Compile Include="MockData\EntityFrameworkMockHelper.cs" />
     <Compile Include="MockData\MockedDBContext.cs" />
-    <Compile Include="TestsViews.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
