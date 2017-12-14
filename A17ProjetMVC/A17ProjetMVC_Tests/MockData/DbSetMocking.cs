@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 
-namespace WebApplication2.Tests.Data
+namespace A17ProjetMVC_Tests.MockData
 {
     public static class DbSetMocking
     {
