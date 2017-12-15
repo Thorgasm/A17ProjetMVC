@@ -228,11 +228,23 @@
   <data name="modelPassword" xml:space="preserve">
     <value>Password</value>
   </data>
+  <data name="modelsErrConfirmPassword" xml:space="preserve">
+    <value>The password and the confirmation password do not match.</value>
+  </data>
+  <data name="models_ErrPassMustMatch" xml:space="preserve">
+    <value>The new password and the confirmation password do not match.</value>
+  </data>
+  <data name="models_ErrPassword" xml:space="preserve">
+    <value>The string {0} must have at least {2} characters.</value>
+  </data>
   <data name="modelUserAddress" xml:space="preserve">
     <value>Address</value>
   </data>
   <data name="modelUserTel" xml:space="preserve">
     <value>Telephone Number</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
   </data>
   <data name="viewBorrowEvalSatisfaction" xml:space="preserve">
     <value>Your Satisfaction.</value>
@@ -287,5 +299,29 @@
   </data>
   <data name="viewTopMemberTitle" xml:space="preserve">
     <value>Top members</value>
+  </data>
+  <data name="viewLoginNewUser" xml:space="preserve">
+    <value>Register as a new user</value>
+  </data>
+  <data name="viewLoginText" xml:space="preserve">
+    <value>Use a local account to sign in.</value>
+  </data>
+  <data name="viewLoginTitle" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="viewPartialLoginConnect" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="viewPartialLoginHi" xml:space="preserve">
+    <value>Hi</value>
+  </data>
+  <data name="viewPartialLogout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="viewRegisterNewAccountText" xml:space="preserve">
+    <value>Create a new account.</value>
+  </data>
+  <data name="viewRegisterTitle" xml:space="preserve">
+    <value>Register</value>
   </data>
 </root>

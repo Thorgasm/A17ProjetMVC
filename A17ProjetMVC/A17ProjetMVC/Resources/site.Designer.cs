@@ -178,6 +178,33 @@ namespace A17ProjetMVC.Resources {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à The new password and the confirmation password do not match..
+        /// </summary>
+        public static string models_ErrPassMustMatch {
+            get {
+                return ResourceManager.GetString("models_ErrPassMustMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à The string {0} must have at least {2} characters..
+        /// </summary>
+        public static string models_ErrPassword {
+            get {
+                return ResourceManager.GetString("models_ErrPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à The password and the confirmation password do not match..
+        /// </summary>
+        public static string modelsErrConfirmPassword {
+            get {
+                return ResourceManager.GetString("modelsErrConfirmPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Address.
         /// </summary>
         public static string modelUserAddress {
@@ -349,6 +376,15 @@ namespace A17ProjetMVC.Resources {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à .
+        /// </summary>
+        public static string String1 {
+            get {
+                return ResourceManager.GetString("String1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Count.
         /// </summary>
         public static string topCategorieCount {
@@ -475,6 +511,33 @@ namespace A17ProjetMVC.Resources {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Register as a new user.
+        /// </summary>
+        public static string viewLoginNewUser {
+            get {
+                return ResourceManager.GetString("viewLoginNewUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Use a local account to sign in..
+        /// </summary>
+        public static string viewLoginText {
+            get {
+                return ResourceManager.GetString("viewLoginText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Login.
+        /// </summary>
+        public static string viewLoginTitle {
+            get {
+                return ResourceManager.GetString("viewLoginTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Return.
         /// </summary>
         public static string viewMyBorrowGiveBack {
@@ -507,6 +570,51 @@ namespace A17ProjetMVC.Resources {
         public static string viewObjectIndexTitle {
             get {
                 return ResourceManager.GetString("viewObjectIndexTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Login.
+        /// </summary>
+        public static string viewPartialLoginConnect {
+            get {
+                return ResourceManager.GetString("viewPartialLoginConnect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Hi.
+        /// </summary>
+        public static string viewPartialLoginHi {
+            get {
+                return ResourceManager.GetString("viewPartialLoginHi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Logout.
+        /// </summary>
+        public static string viewPartialLogout {
+            get {
+                return ResourceManager.GetString("viewPartialLogout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Create a new account..
+        /// </summary>
+        public static string viewRegisterNewAccountText {
+            get {
+                return ResourceManager.GetString("viewRegisterNewAccountText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Register.
+        /// </summary>
+        public static string viewRegisterTitle {
+            get {
+                return ResourceManager.GetString("viewRegisterTitle", resourceCulture);
             }
         }
         

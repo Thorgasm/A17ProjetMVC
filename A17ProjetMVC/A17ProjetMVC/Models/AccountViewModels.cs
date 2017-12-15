@@ -91,14 +91,14 @@ namespace A17ProjetMVC.Models
         public string Adresse { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "La chaîne {0} doit comporter au moins {2} caractères.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessageResourceName = "models_ErrPassword", ErrorMessageResourceType = typeof(Resources.site), MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "modelPassword", ResourceType = typeof(Resources.site))]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "modelConfirmPass", ResourceType = typeof(Resources.site))]
-        [Compare("Password", ErrorMessage = "Le mot de passe et le mot de passe de confirmation ne correspondent pas.")]
+        [Compare("Password", ErrorMessageResourceName = "models_ErrPassMustMatch", ErrorMessageResourceType = typeof(Resources.site))]
         public string ConfirmPassword { get; set; }
     }
 
@@ -110,14 +110,14 @@ namespace A17ProjetMVC.Models
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "La chaîne {0} doit comporter au moins {2} caractères.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessageResourceName = "models_ErrPassword", ErrorMessageResourceType = typeof(Resources.site), MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "modelPass", ResourceType = typeof(Resources.site))]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "modelConfirmPass", ResourceType = typeof(Resources.site))]
-        [Compare("Password", ErrorMessage = "Le nouveau mot de passe et le mot de passe de confirmation ne correspondent pas.")]
+        [Compare("Password", ErrorMessageResourceName = "models_ErrPassMustMatch", ErrorMessageResourceType = typeof(Resources.site))]
         public string ConfirmPassword { get; set; }
 
         public string Code { get; set; }

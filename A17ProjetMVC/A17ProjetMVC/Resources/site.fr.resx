@@ -228,6 +228,15 @@
   <data name="modelPassword" xml:space="preserve">
     <value>Mot de passe</value>
   </data>
+  <data name="modelsErrConfirmPassword" xml:space="preserve">
+    <value>Le mot de passe et le mot de passe de confirmation ne correspondent pas.</value>
+  </data>
+  <data name="models_ErrPassMustMatch" xml:space="preserve">
+    <value>Le nouveau mot de passe et le mot de passe de confirmation ne correspondent pas.</value>
+  </data>
+  <data name="models_ErrPassword" xml:space="preserve">
+    <value>La chaîne {0} doit comporter au moins {2} caractères.</value>
+  </data>
   <data name="modelUserAddress" xml:space="preserve">
     <value>Adresse</value>
   </data>
@@ -287,5 +296,29 @@
   </data>
   <data name="viewTopMemberTitle" xml:space="preserve">
     <value>Top membres</value>
+  </data>
+  <data name="viewLoginNewUser" xml:space="preserve">
+    <value>S'inscrire comme nouvel utilisateur</value>
+  </data>
+  <data name="viewLoginText" xml:space="preserve">
+    <value>Utilisez un compte local pour vous connecter.</value>
+  </data>
+  <data name="viewLoginTitle" xml:space="preserve">
+    <value>Connexion</value>
+  </data>
+  <data name="viewPartialLoginConnect" xml:space="preserve">
+    <value>Se connecter</value>
+  </data>
+  <data name="viewPartialLoginHi" xml:space="preserve">
+    <value>Bienvenue</value>
+  </data>
+  <data name="viewPartialLogout" xml:space="preserve">
+    <value>Se déconnecter</value>
+  </data>
+  <data name="viewRegisterNewAccountText" xml:space="preserve">
+    <value>Créer un nouveau compte.</value>
+  </data>
+  <data name="viewRegisterTitle" xml:space="preserve">
+    <value>S'inscrire</value>
   </data>
 </root>
