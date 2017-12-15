@@ -1,28 +1,29 @@
 ﻿@model A17ProjetMVC.Models.StatistiquesVM
+@using A17ProjetMVC.Resources
 
 @{
     ViewBag.Title = "Statistiques";
 }
 
-<h2>Statistiques</h2>
+<h2>@site.statTitle</h2>
 
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <h3>Top 5 membres généreux du mois</h3>
+            <h3>@site.statTop5GenerousMonth</h3>
             <table class="table">
                 <tr>
                     <th>
-                        Matricule
+                        <p>@site.statRegistrationNumber</p>
                     </th>
                     <th>
-                        Nom
+                        @site.statLastName
                     </th>
                     <th>
-                        Prenom
+                        @site.statFirstName
                     </th>
                     <th>
-                        Nb D'objets
+                        @site.topMemberObjCount
                     </th>
                     <th></th>
                 </tr>
@@ -49,20 +50,20 @@
             </table>
         </div>
         <div class="col-md-6">
-            <h3>Top 5 membres généreux de la semaine</h3>
+            <h3>@site.statTop5GenerousWeek</h3>
             <table class="table">
                 <tr>
                     <th>
-                        Matricule
+                        @site.statRegistrationNumber
                     </th>
                     <th>
-                        Nom
+                        @site.statLastName
                     </th>
                     <th>
-                        Prenom
+                        @site.statFirstName
                     </th>
                     <th>
-                        Nb D'objets
+                        @site.topMemberObjCount
                     </th>
                     <th></th>
                 </tr>
@@ -94,20 +95,20 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <h3>Top 5 membres Apréciés du mois</h3>
+            <h3>@site.statTop5AppreciatedMonth</h3>
             <table class="table">
                 <tr>
                     <th>
-                        Matricule
+                        @site.statRegistrationNumber
                     </th>
                     <th>
-                        Nom
+                        @site.statLastName
                     </th>
                     <th>
-                        Prenom
+                        @site.statFirstName
                     </th>
                     <th>
-                        Note moyenne
+                        @site.statAvgRating
                     </th>
                     <th></th>
                 </tr>
@@ -134,20 +135,20 @@
             </table>
         </div>
         <div class="col-md-6">
-            <h3>Top 5 membres Apréciés de la semaine</h3>
+            <h3>@site.statTop5AppreciatedWeek</h3>
             <table class="table">
                 <tr>
                     <th>
-                        Matricule
+                        @site.statRegistrationNumber
                     </th>
                     <th>
-                        Nom
+                        @site.statLastName
                     </th>
                     <th>
-                        Prenom
+                        @site.statFirstName
                     </th>
                     <th>
-                        Note moyenne
+                        @site.statAvgRating
                     </th>
                     <th></th>
                 </tr>
@@ -177,19 +178,19 @@
 </div>
 
 
-<h2>Top Catégories</h2>
+<h2>Top @site.modelCategoryName</h2>
 
 <div class="container">
     <div class="row">
         <div class="col-md-3">
-            <h3>Top 5 catégories les plus sollicitées du mois</h3>
+            <h3>@site.statTop5MostSoughtMonth</h3>
             <table class="table">
                 <tr>
                     <th>
-                        Catégorie
+                        @site.modelCategoryName
                     </th>
                     <th>
-                        Nb D'objets
+                        @site.topMemberObjCount
                     </th>
                 </tr>
 
@@ -209,14 +210,14 @@
             </table>
         </div>
         <div class="col-md-3">
-            <h3>Top 5 catégories les plus sollicitées de la semaine</h3>
+            <h3>@site.statTop5MostSoughtWeek</h3>
             <table class="table">
                 <tr>
                     <th>
-                        Catégorie
+                        @site.modelCategoryName
                     </th>
                     <th>
-                        Nb D'objets
+                        @site.topMemberObjCount
                     </th>
                 </tr>
 
@@ -236,14 +237,14 @@
             </table>
         </div>
         <div class="col-md-3">
-            <h3>Top 5 catégories les moins sollicitées du mois</h3>
+            <h3>@site.statTop5LeastSoughtMonth</h3>
             <table class="table">
                 <tr>
                     <th>
-                        Catégorie
+                        @site.modelCategoryName
                     </th>
                     <th>
-                        Nb D'objets
+                        @site.topMemberObjCount
                     </th>
                 </tr>
 
@@ -263,14 +264,14 @@
             </table>
         </div>
         <div class="col-md-3">
-            <h3>Top 5 catégories les moins sollicitées de la semaine</h3>
+            <h3>@site.statTop5LeastSoughtWeek</h3>
             <table class="table">
                 <tr>
                     <th>
-                        Catégorie
+                        @site.modelCategoryName
                     </th>
                     <th>
-                        Nb D'objets
+                        @site.topMemberObjCount
                     </th>
                 </tr>
 

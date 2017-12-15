@@ -123,7 +123,79 @@
   <data name="Borrow" xml:space="preserve">
     <value>Borrow</value>
   </data>
+  <data name="borrowEndDate" xml:space="preserve">
+    <value>End date</value>
+  </data>
+  <data name="borrowIsDelivered" xml:space="preserve">
+    <value>Is delivered</value>
+  </data>
+  <data name="borrowServiceRating" xml:space="preserve">
+    <value>Service rating</value>
+  </data>
+  <data name="borrowStartDate" xml:space="preserve">
+    <value>Start date</value>
+  </data>
+  <data name="borrowVMDayNumber" xml:space="preserve">
+    <value>Number of days</value>
+  </data>
+  <data name="modelCategoryName" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="objectAvailable" xml:space="preserve">
+    <value>Is available</value>
+  </data>
+  <data name="objectDescription" xml:space="preserve">
+    <value>Description</value>
+  </data>
   <data name="ObjectName" xml:space="preserve">
     <value>Object Name</value>
+  </data>
+  <data name="objectPublicationDate" xml:space="preserve">
+    <value>Publication Date</value>
+  </data>
+  <data name="statAvgRating" xml:space="preserve">
+    <value>Average Rating</value>
+  </data>
+  <data name="statFirstName" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="statLastName" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="statRegistrationNumber" xml:space="preserve">
+    <value>Registration Number</value>
+  </data>
+  <data name="statTitle" xml:space="preserve">
+    <value>Statistics</value>
+  </data>
+  <data name="statTop5AppreciatedMonth" xml:space="preserve">
+    <value>Top 5 members appreciated of the month</value>
+  </data>
+  <data name="statTop5AppreciatedWeek" xml:space="preserve">
+    <value>Top 5 members appreciated of the week</value>
+  </data>
+  <data name="statTop5GenerousMonth" xml:space="preserve">
+    <value>Top 5 generous members of the month</value>
+  </data>
+  <data name="statTop5GenerousWeek" xml:space="preserve">
+    <value>Top 5 generous members of the week</value>
+  </data>
+  <data name="statTop5LeastSoughtMonth" xml:space="preserve">
+    <value>Top 5 least sought after categories of the month</value>
+  </data>
+  <data name="statTop5LeastSoughtWeek" xml:space="preserve">
+    <value>Top 5 least sought after categories of the week</value>
+  </data>
+  <data name="statTop5MostSoughtMonth" xml:space="preserve">
+    <value>Top 5 most sought after categories of the month</value>
+  </data>
+  <data name="statTop5MostSoughtWeek" xml:space="preserve">
+    <value>Top 5 most sought after categories of the week</value>
+  </data>
+  <data name="topCategorieCount" xml:space="preserve">
+    <value>Count</value>
+  </data>
+  <data name="topMemberObjCount" xml:space="preserve">
+    <value>Number of objects</value>
   </data>
 </root>

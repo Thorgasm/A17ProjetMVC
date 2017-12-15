@@ -123,7 +123,79 @@
   <data name="Borrow" xml:space="preserve">
     <value>Emprunter</value>
   </data>
+  <data name="borrowEndDate" xml:space="preserve">
+    <value>Date de fin</value>
+  </data>
+  <data name="borrowIsDelivered" xml:space="preserve">
+    <value>Est remis</value>
+  </data>
+  <data name="borrowServiceRating" xml:space="preserve">
+    <value>Note service</value>
+  </data>
+  <data name="borrowStartDate" xml:space="preserve">
+    <value>Date de début</value>
+  </data>
+  <data name="borrowVMDayNumber" xml:space="preserve">
+    <value>Nombre de jours</value>
+  </data>
+  <data name="modelCategoryName" xml:space="preserve">
+    <value>Categorie</value>
+  </data>
+  <data name="objectAvailable" xml:space="preserve">
+    <value>Est disponible</value>
+  </data>
+  <data name="objectDescription" xml:space="preserve">
+    <value>Description</value>
+  </data>
   <data name="ObjectName" xml:space="preserve">
     <value>Nom Objet</value>
+  </data>
+  <data name="objectPublicationDate" xml:space="preserve">
+    <value>Date de publication</value>
+  </data>
+  <data name="statAvgRating" xml:space="preserve">
+    <value>Note moyenne</value>
+  </data>
+  <data name="statFirstName" xml:space="preserve">
+    <value>Prénom</value>
+  </data>
+  <data name="statLastName" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="statRegistrationNumber" xml:space="preserve">
+    <value>Matricule</value>
+  </data>
+  <data name="statTitle" xml:space="preserve">
+    <value>Statistiques</value>
+  </data>
+  <data name="statTop5AppreciatedMonth" xml:space="preserve">
+    <value>Top 5 membres appréciés du mois</value>
+  </data>
+  <data name="statTop5AppreciatedWeek" xml:space="preserve">
+    <value>Top 5 membres appréciés de la semaine</value>
+  </data>
+  <data name="statTop5GenerousMonth" xml:space="preserve">
+    <value>Top 5 membres généreux du mois</value>
+  </data>
+  <data name="statTop5GenerousWeek" xml:space="preserve">
+    <value>Top 5 membres généreux de la semaine</value>
+  </data>
+  <data name="statTop5LeastSoughtMonth" xml:space="preserve">
+    <value>Top 5 catégories les moins sollicitées du mois</value>
+  </data>
+  <data name="statTop5LeastSoughtWeek" xml:space="preserve">
+    <value>Top 5 catégories les moins sollicitées de la semaine</value>
+  </data>
+  <data name="statTop5MostSoughtMonth" xml:space="preserve">
+    <value>Top 5 catégories les plus sollicitées du mois</value>
+  </data>
+  <data name="statTop5MostSoughtWeek" xml:space="preserve">
+    <value>Top 5 catégories les plus sollicitées de la semaine</value>
+  </data>
+  <data name="topCategorieCount" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="topMemberObjCount" xml:space="preserve">
+    <value>Nombre d'objet</value>
   </data>
 </root>

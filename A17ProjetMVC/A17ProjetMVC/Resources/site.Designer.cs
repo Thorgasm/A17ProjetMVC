@@ -79,11 +79,227 @@ namespace A17ProjetMVC.Resources {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à End date.
+        /// </summary>
+        public static string borrowEndDate {
+            get {
+                return ResourceManager.GetString("borrowEndDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Is delivered.
+        /// </summary>
+        public static string borrowIsDelivered {
+            get {
+                return ResourceManager.GetString("borrowIsDelivered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Service rating.
+        /// </summary>
+        public static string borrowServiceRating {
+            get {
+                return ResourceManager.GetString("borrowServiceRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Start date.
+        /// </summary>
+        public static string borrowStartDate {
+            get {
+                return ResourceManager.GetString("borrowStartDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Number of days.
+        /// </summary>
+        public static string borrowVMDayNumber {
+            get {
+                return ResourceManager.GetString("borrowVMDayNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Category.
+        /// </summary>
+        public static string modelCategoryName {
+            get {
+                return ResourceManager.GetString("modelCategoryName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Is available.
+        /// </summary>
+        public static string objectAvailable {
+            get {
+                return ResourceManager.GetString("objectAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Description.
+        /// </summary>
+        public static string objectDescription {
+            get {
+                return ResourceManager.GetString("objectDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Object Name.
         /// </summary>
         public static string ObjectName {
             get {
                 return ResourceManager.GetString("ObjectName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Publication Date.
+        /// </summary>
+        public static string objectPublicationDate {
+            get {
+                return ResourceManager.GetString("objectPublicationDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Average Rating.
+        /// </summary>
+        public static string statAvgRating {
+            get {
+                return ResourceManager.GetString("statAvgRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à First name.
+        /// </summary>
+        public static string statFirstName {
+            get {
+                return ResourceManager.GetString("statFirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Last name.
+        /// </summary>
+        public static string statLastName {
+            get {
+                return ResourceManager.GetString("statLastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Registration Number.
+        /// </summary>
+        public static string statRegistrationNumber {
+            get {
+                return ResourceManager.GetString("statRegistrationNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Statistics.
+        /// </summary>
+        public static string statTitle {
+            get {
+                return ResourceManager.GetString("statTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Top 5 members appreciated of the month.
+        /// </summary>
+        public static string statTop5AppreciatedMonth {
+            get {
+                return ResourceManager.GetString("statTop5AppreciatedMonth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Top 5 members appreciated of the week.
+        /// </summary>
+        public static string statTop5AppreciatedWeek {
+            get {
+                return ResourceManager.GetString("statTop5AppreciatedWeek", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Top 5 generous members of the month.
+        /// </summary>
+        public static string statTop5GenerousMonth {
+            get {
+                return ResourceManager.GetString("statTop5GenerousMonth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Top 5 generous members of the week.
+        /// </summary>
+        public static string statTop5GenerousWeek {
+            get {
+                return ResourceManager.GetString("statTop5GenerousWeek", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Top 5 least sought after categories of the month.
+        /// </summary>
+        public static string statTop5LeastSoughtMonth {
+            get {
+                return ResourceManager.GetString("statTop5LeastSoughtMonth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Top 5 least sought after categories of the week.
+        /// </summary>
+        public static string statTop5LeastSoughtWeek {
+            get {
+                return ResourceManager.GetString("statTop5LeastSoughtWeek", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Top 5 most sought after categories of the month.
+        /// </summary>
+        public static string statTop5MostSoughtMonth {
+            get {
+                return ResourceManager.GetString("statTop5MostSoughtMonth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Top 5 most sought after categories of the week.
+        /// </summary>
+        public static string statTop5MostSoughtWeek {
+            get {
+                return ResourceManager.GetString("statTop5MostSoughtWeek", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Count.
+        /// </summary>
+        public static string topCategorieCount {
+            get {
+                return ResourceManager.GetString("topCategorieCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Number of objects.
+        /// </summary>
+        public static string topMemberObjCount {
+            get {
+                return ResourceManager.GetString("topMemberObjCount", resourceCulture);
             }
         }
     }

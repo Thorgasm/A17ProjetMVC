@@ -20,14 +20,18 @@ namespace A17ProjetMVC.Models
         [ForeignKey("Objet")]
         public int ObjetID { get; set; }
 
+        [Display(Name ="borrowStartDate",ResourceType = typeof(Resources.site))]
         [Column(TypeName = "date")]
         public DateTime DateDebut { get; set; }
 
+        [Display(Name ="borrowEndDate", ResourceType = typeof(Resources.site))]
         [Column(TypeName = "date")]
         public DateTime DateFin { get; set; }
 
+        [Display(Name ="borrowIsDelivered", ResourceType = typeof(Resources.site))]
         public Boolean EstRemis { get; set; }
-        
+
+        [Display(Name ="borrowServiceRating", ResourceType = typeof(Resources.site))]
         [Range(0,5)]
         public int NoteService { get; set; }   
 

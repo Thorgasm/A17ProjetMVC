@@ -17,8 +17,10 @@ namespace A17ProjetMVC.Models
         [Display(Name = "ObjectName", ResourceType = typeof(Resources.site))]
         public string NomObjet { get; set; }
 
+        [Display(Name = "objectDescription", ResourceType = typeof(Resources.site))]
         public string Description { get; set; }
 
+        [Display(Name = "objectAvailable", ResourceType = typeof(Resources.site))]
         public bool estDisponible { get; set; }
 
         [ForeignKey("Categorie")]
@@ -27,6 +29,7 @@ namespace A17ProjetMVC.Models
         [ForeignKey("User")]
         public string UserID { get; set; }
 
+        [Display(Name = "objectPublicationDate", ResourceType = typeof(Resources.site))]
         [DataType(DataType.DateTime)]
         public DateTime DatePublication { get; set; }
 
