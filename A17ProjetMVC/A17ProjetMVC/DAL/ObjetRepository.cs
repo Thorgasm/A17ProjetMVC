@@ -109,9 +109,9 @@ namespace A17ProjetMVC.DAL
             {
 
                 List<TopMembresAprecieVM> lstM = repo.context.Emprunts
-                    .GroupBy(u => u.User)
-                    .Where(a => a.Key.Emprunts.Where(e => e.DateFin != null && e.DateFin > min).Count() > 0)
-                    .Select(u => new TopMembresAprecieVM { AverageNotes = u.Key.Emprunts.Average(av => (double?)av.NoteService) ?? 0, User = u.Key })
+                    .GroupBy(u => u.Objet.User)
+                    .Where(a => a.Where(e => e.DateFin != null && e.DateFin > min).Count() > 0)
+                    .Select(u => new TopMembresAprecieVM { AverageNotes = u.Where(e => e.DateFin != null && e.DateFin > min).Average(av => (double?)av.NoteService) ?? 0, User = u.Key })
                     .OrderByDescending(a => a.AverageNotes).Take(5)
                     .ToList();
 
