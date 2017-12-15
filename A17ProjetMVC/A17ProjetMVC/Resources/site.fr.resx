@@ -213,4 +213,79 @@
   <data name="viewSharedStat" xml:space="preserve">
     <value>Statistiques</value>
   </data>
+  <data name="buttonCreateNew" xml:space="preserve">
+    <value>Créer nouveau</value>
+  </data>
+  <data name="modelAccEmail" xml:space="preserve">
+    <value>Courrier électronique</value>
+  </data>
+  <data name="modelConfirmPass" xml:space="preserve">
+    <value>Confirmer le mot de passe</value>
+  </data>
+  <data name="modelMemorizePass" xml:space="preserve">
+    <value>Mémoriser le mot de passe ?</value>
+  </data>
+  <data name="modelPassword" xml:space="preserve">
+    <value>Mot de passe</value>
+  </data>
+  <data name="modelUserAddress" xml:space="preserve">
+    <value>Adresse</value>
+  </data>
+  <data name="modelUserTel" xml:space="preserve">
+    <value>Numéro de téléphone</value>
+  </data>
+  <data name="viewBorrowEvalSatisfaction" xml:space="preserve">
+    <value>Votre Satisfaction.</value>
+  </data>
+  <data name="viewBorrowEvalTextSatisfaction" xml:space="preserve">
+    <value>Veuillez indiquer votre satisfaction pour le produit en lui attribuant une note entre 1 et 5</value>
+  </data>
+  <data name="viewBorrowEvalTitle" xml:space="preserve">
+    <value>Note de l'emprunt</value>
+  </data>
+  <data name="viewBorrowRatingExperience" xml:space="preserve">
+    <value>Parlez-nous de votre expérience</value>
+  </data>
+  <data name="viewBorrowRatingSatisfaction" xml:space="preserve">
+    <value>Évaluation de votre satisfaction</value>
+  </data>
+  <data name="viewBorrowRatingTitle" xml:space="preserve">
+    <value>Évaluation de l'emprunt</value>
+  </data>
+  <data name="viewCreateBackToList" xml:space="preserve">
+    <value>Retour à la liste</value>
+  </data>
+  <data name="viewCreateObject" xml:space="preserve">
+    <value>Objet</value>
+  </data>
+  <data name="viewCreateTitle" xml:space="preserve">
+    <value>Créer</value>
+  </data>
+  <data name="viewDeleteConfirmDelete" xml:space="preserve">
+    <value>Êtes-vous sur de vouloir supprimer?</value>
+  </data>
+  <data name="viewDeleteTitle" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="viewEditTitle" xml:space="preserve">
+    <value>Modifier</value>
+  </data>
+  <data name="viewMyBorrowGiveBack" xml:space="preserve">
+    <value>Remettre</value>
+  </data>
+  <data name="viewMyObjectBelongTo" xml:space="preserve">
+    <value>Appartient à</value>
+  </data>
+  <data name="viewObjectIndexElseList" xml:space="preserve">
+    <value>Il n'y a pas d'objet à présenter.</value>
+  </data>
+  <data name="viewObjectIndexTitle" xml:space="preserve">
+    <value>Tout les objets</value>
+  </data>
+  <data name="viewTop5ObjTitle" xml:space="preserve">
+    <value>Top 5 Objet</value>
+  </data>
+  <data name="viewTopMemberTitle" xml:space="preserve">
+    <value>Top membres</value>
+  </data>
 </root>

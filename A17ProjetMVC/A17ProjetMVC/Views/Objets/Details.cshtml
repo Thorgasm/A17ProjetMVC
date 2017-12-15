@@ -1,4 +1,5 @@
 ﻿@model A17ProjetMVC.Models.Objet
+@using A17ProjetMVC.Resources;
 
 @{
     ViewBag.Title = "Details";
@@ -35,5 +36,5 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(@site.viewCreateBackToList, "Index")
 </p>

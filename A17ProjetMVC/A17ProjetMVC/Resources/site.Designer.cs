@@ -124,11 +124,74 @@ namespace A17ProjetMVC.Resources {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Create new.
+        /// </summary>
+        public static string buttonCreateNew {
+            get {
+                return ResourceManager.GetString("buttonCreateNew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Email.
+        /// </summary>
+        public static string modelAccEmail {
+            get {
+                return ResourceManager.GetString("modelAccEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Category.
         /// </summary>
         public static string modelCategoryName {
             get {
                 return ResourceManager.GetString("modelCategoryName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Confirm the password.
+        /// </summary>
+        public static string modelConfirmPass {
+            get {
+                return ResourceManager.GetString("modelConfirmPass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Memorize the password ?.
+        /// </summary>
+        public static string modelMemorizePass {
+            get {
+                return ResourceManager.GetString("modelMemorizePass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Password.
+        /// </summary>
+        public static string modelPassword {
+            get {
+                return ResourceManager.GetString("modelPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Address.
+        /// </summary>
+        public static string modelUserAddress {
+            get {
+                return ResourceManager.GetString("modelUserAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Telephone Number.
+        /// </summary>
+        public static string modelUserTel {
+            get {
+                return ResourceManager.GetString("modelUserTel", resourceCulture);
             }
         }
         
@@ -304,6 +367,150 @@ namespace A17ProjetMVC.Resources {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Your Satisfaction..
+        /// </summary>
+        public static string viewBorrowEvalSatisfaction {
+            get {
+                return ResourceManager.GetString("viewBorrowEvalSatisfaction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Please indicate your satisfaction for the product by giving it a score between 1 and 5.
+        /// </summary>
+        public static string viewBorrowEvalTextSatisfaction {
+            get {
+                return ResourceManager.GetString("viewBorrowEvalTextSatisfaction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Borrow Evaluation.
+        /// </summary>
+        public static string viewBorrowEvalTitle {
+            get {
+                return ResourceManager.GetString("viewBorrowEvalTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Tell us about your experience.
+        /// </summary>
+        public static string viewBorrowRatingExperience {
+            get {
+                return ResourceManager.GetString("viewBorrowRatingExperience", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Evaluation of your satisfaction.
+        /// </summary>
+        public static string viewBorrowRatingSatisfaction {
+            get {
+                return ResourceManager.GetString("viewBorrowRatingSatisfaction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Evaluation of the borrow.
+        /// </summary>
+        public static string viewBorrowRatingTitle {
+            get {
+                return ResourceManager.GetString("viewBorrowRatingTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Back to list.
+        /// </summary>
+        public static string viewCreateBackToList {
+            get {
+                return ResourceManager.GetString("viewCreateBackToList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Object.
+        /// </summary>
+        public static string viewCreateObject {
+            get {
+                return ResourceManager.GetString("viewCreateObject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Create.
+        /// </summary>
+        public static string viewCreateTitle {
+            get {
+                return ResourceManager.GetString("viewCreateTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Are you sure you want to delete this?.
+        /// </summary>
+        public static string viewDeleteConfirmDelete {
+            get {
+                return ResourceManager.GetString("viewDeleteConfirmDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Delete.
+        /// </summary>
+        public static string viewDeleteTitle {
+            get {
+                return ResourceManager.GetString("viewDeleteTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Edit.
+        /// </summary>
+        public static string viewEditTitle {
+            get {
+                return ResourceManager.GetString("viewEditTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Return.
+        /// </summary>
+        public static string viewMyBorrowGiveBack {
+            get {
+                return ResourceManager.GetString("viewMyBorrowGiveBack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Belongs to.
+        /// </summary>
+        public static string viewMyObjectBelongTo {
+            get {
+                return ResourceManager.GetString("viewMyObjectBelongTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à There are no object to show..
+        /// </summary>
+        public static string viewObjectIndexElseList {
+            get {
+                return ResourceManager.GetString("viewObjectIndexElseList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à All the objects.
+        /// </summary>
+        public static string viewObjectIndexTitle {
+            get {
+                return ResourceManager.GetString("viewObjectIndexTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Available objects.
         /// </summary>
         public static string viewSharedAvailableObjects {
@@ -345,6 +552,24 @@ namespace A17ProjetMVC.Resources {
         public static string viewSharedStat {
             get {
                 return ResourceManager.GetString("viewSharedStat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Top 5 Objects.
+        /// </summary>
+        public static string viewTop5ObjTitle {
+            get {
+                return ResourceManager.GetString("viewTop5ObjTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Top members.
+        /// </summary>
+        public static string viewTopMemberTitle {
+            get {
+                return ResourceManager.GetString("viewTopMemberTitle", resourceCulture);
             }
         }
     }

@@ -7,7 +7,7 @@ namespace A17ProjetMVC.Models
     public class ExternalLoginConfirmationViewModel
     {
         [Required]
-        [Display(Name = "Courrier électronique")]
+        [Display(Name = "modelAccEmail", ResourceType = typeof(Resources.site))]
         public string Email { get; set; }
     }
 
@@ -34,7 +34,7 @@ namespace A17ProjetMVC.Models
         public string Code { get; set; }
         public string ReturnUrl { get; set; }
 
-        [Display(Name = "Mémoriser ce navigateur ?")]
+        [Display(Name = "modelAccMemorizePassword", ResourceType = typeof(Resources.site))]
         public bool RememberBrowser { get; set; }
 
         public bool RememberMe { get; set; }
@@ -43,22 +43,22 @@ namespace A17ProjetMVC.Models
     public class ForgotViewModel
     {
         [Required]
-        [Display(Name = "Courrier électronique")]
+        [Display(Name = "modelAccEmail", ResourceType = typeof(Resources.site))]
         public string Email { get; set; }
     }
 
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Matricule")]
+        [Display(Name = "statRegistrationNumber", ResourceType = typeof(Resources.site))]
         public string Matricule { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Mot de passe")]
+        [Display(Name = "modelPassword", ResourceType = typeof(Resources.site))]
         public string Password { get; set; }
 
-        [Display(Name = "Mémoriser le mot de passe ?")]
+        [Display(Name = "modelMemorizePass", ResourceType = typeof(Resources.site))]
         public bool RememberMe { get; set; }
     }
 
@@ -66,36 +66,38 @@ namespace A17ProjetMVC.Models
     {
         [Required]
         [EmailAddress]
-        [Display(Name = "Courrier électronique")]
+        [Display(Name = "modelAccEmail", ResourceType = typeof(Resources.site))]
         public string Email { get; set; }
 
         [Required]
+        [Display(Name = "statRegistrationNumber", ResourceType = typeof(Resources.site))]
         public string Matricule { get; set; }
 
         [Required]
-        [Display(Name = "Nom")]
+        [Display(Name = "statLastName", ResourceType = typeof(Resources.site))]
         public string Nom { get; set; }
 
         [Required]
-        [Display(Name = "Prénom")]
+        [Display(Name = "statFirstName", ResourceType = typeof(Resources.site))]
         public string Prenom { get; set; }
 
         [Required]
         [Phone]
-        [Display(Name = "Numéro de téléphone")]
+        [Display(Name = "modelUserTel", ResourceType = typeof(Resources.site))]
         public string NumeroTelephone { get; set; }
 
         [Required]
+        [Display(Name = "modelUserAddress", ResourceType = typeof(Resources.site))]
         public string Adresse { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "La chaîne {0} doit comporter au moins {2} caractères.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Mot de passe")]
+        [Display(Name = "modelPassword", ResourceType = typeof(Resources.site))]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirmer le mot de passe ")]
+        [Display(Name = "modelConfirmPass", ResourceType = typeof(Resources.site))]
         [Compare("Password", ErrorMessage = "Le mot de passe et le mot de passe de confirmation ne correspondent pas.")]
         public string ConfirmPassword { get; set; }
     }
@@ -104,17 +106,17 @@ namespace A17ProjetMVC.Models
     {
         [Required]
         [EmailAddress]
-        [Display(Name = "Courrier électronique")]
+        [Display(Name = "modelAccEmail", ResourceType = typeof(Resources.site))]
         public string Email { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "La chaîne {0} doit comporter au moins {2} caractères.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Mot de passe")]
+        [Display(Name = "modelPass", ResourceType = typeof(Resources.site))]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirmer le mot de passe")]
+        [Display(Name = "modelConfirmPass", ResourceType = typeof(Resources.site))]
         [Compare("Password", ErrorMessage = "Le nouveau mot de passe et le mot de passe de confirmation ne correspondent pas.")]
         public string ConfirmPassword { get; set; }
 
@@ -125,7 +127,7 @@ namespace A17ProjetMVC.Models
     {
         [Required]
         [EmailAddress]
-        [Display(Name = "E-mail")]
+        [Display(Name = "modelAccEmail", ResourceType = typeof(Resources.site))]
         public string Email { get; set; }
     }
 }

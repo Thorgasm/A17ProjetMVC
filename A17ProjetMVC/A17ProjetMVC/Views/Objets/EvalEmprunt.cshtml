@@ -1,11 +1,12 @@
 ﻿@model A17ProjetMVC.Models.Emprunt
+@using A17ProjetMVC.Resources;
 
 @{
-    ViewBag.Title = "EvalEmprunt";
+    ViewBag.Title = @site.viewBorrowRatingTitle;
 }
 
-<h2>Évaluation de votre satisfaction</h2>
-<p>Parlez-nous de votre expérience</p>
+<h2>@site.viewBorrowRatingSatisfaction</h2>
+<p>@site.viewBorrowRatingExperience</p>
 
 
 @using (Html.BeginForm())
@@ -13,7 +14,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Emprunt</h4>
+        <h4>@site.viewBorrowTitle</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.EmpruntID)

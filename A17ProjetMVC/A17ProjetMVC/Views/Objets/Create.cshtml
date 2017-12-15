@@ -1,17 +1,18 @@
 ﻿@model A17ProjetMVC.Models.Objet
+    @using A17ProjetMVC.Resources;
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = @site.viewCreateTitle;
 }
 
-<h2>Create</h2>
+<h2>@site.viewCreateTitle</h2>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Objet</h4>
+        <h4>@site.viewCreateObject</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -47,5 +48,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(@site.viewCreateBackToList, "Index")
 </div>

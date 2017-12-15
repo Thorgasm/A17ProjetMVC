@@ -1,13 +1,14 @@
 ﻿@model IEnumerable<A17ProjetMVC.Models.Objet>
+@using A17ProjetMVC.Resources;
 
 @{
-    ViewBag.Title = "Top 5 Objets";
+    ViewBag.Title = @site.viewTop5ObjTitle;
 }
 
-<h2>Top 5 Objets</h2>
+<h2>@site.viewTop5ObjTitle</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink(@site.buttonCreateNew, "Create")
 </p>
 <table class="table">
     <tr>

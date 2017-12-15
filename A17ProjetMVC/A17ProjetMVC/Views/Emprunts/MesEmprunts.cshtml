@@ -1,10 +1,11 @@
 ﻿@model IEnumerable<A17ProjetMVC.Models.Emprunt>
+@using A17ProjetMVC.Resources;
 
 @{
-    ViewBag.Title = "MesEmprunts";
+    ViewBag.Title = @site.viewSharedMyBorrows;
 }
 
-<h2>MesEmprunts</h2>
+<h2>@site.viewSharedMyBorrows</h2>
 
 <table class="table">
     <tr>
@@ -33,7 +34,7 @@
         </td>
         <td>
             @Html.ActionLink("Details", "Details", new { id=item.EmpruntID }) |
-            @Html.ActionLink("Remettre", "Remettre", new { id=item.EmpruntID })
+            @Html.ActionLink(@site.viewMyBorrowGiveBack, "Remettre", new { id=item.EmpruntID })
         </td>
     </tr>
 }

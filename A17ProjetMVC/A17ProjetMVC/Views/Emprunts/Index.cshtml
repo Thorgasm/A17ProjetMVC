@@ -1,7 +1,8 @@
 ﻿@model IEnumerable<A17ProjetMVC.Models.Emprunt>
+@using A17ProjetMVC.Resources;
 
 @{
-    ViewBag.Title = "Mes Emprunts";
+    ViewBag.Title = @site.viewSharedMyBorrows;
 }
 
 <h2>Index</h2>
@@ -40,7 +41,7 @@
         </td>
         <td>
             @Html.ActionLink("Details", "Details", new { id=item.EmpruntID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EmpruntID })
+            @Html.ActionLink(@site.viewDeleteTitle, "Delete", new { id=item.EmpruntID })
         </td>
     </tr>
 }

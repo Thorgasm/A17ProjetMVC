@@ -1,10 +1,11 @@
 ﻿@model A17ProjetMVC.Models.EmpruntVM
+@using A17ProjetMVC.Resources;
 
 @{
-    ViewBag.Title = "Emprunt";
+    ViewBag.Title = @site.Borrow;
 }
 
-<h2>Emprunt</h2>
+<h2>@site.Borrow</h2>
 
 @using (Html.BeginForm()) 
 {
@@ -34,5 +35,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(@site.viewCreateBackToList, "Index")
 </div>

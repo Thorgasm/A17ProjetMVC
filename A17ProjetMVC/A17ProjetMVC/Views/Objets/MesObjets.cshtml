@@ -1,13 +1,14 @@
 ﻿@model IEnumerable<A17ProjetMVC.Models.Objet>
+@using A17ProjetMVC.Resources;
 
 @{
-    ViewBag.Title = "Mes Objets";
+    ViewBag.Title = @site.viewSharedMyObject;
 }
 
-<h2>Mes objets</h2>
+<h2>@site.viewSharedMyObject</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink(@site.buttonCreateNew, "Create")
 </p>
 <table class="table">
     <tr>
@@ -15,7 +16,7 @@
             @Html.DisplayNameFor(model => model.NomObjet)
         </th>
         <th>
-            <p>Appartient à</p>
+            <p>@site.viewMyObjectBelongTo</p>
         </th>
         <th></th>
     </tr>
@@ -29,9 +30,9 @@
             @Html.DisplayFor(modelItem => item.User.Nom)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ObjetID }) |
+            @Html.ActionLink(@site.viewEditTitle, "Edit", new { id=item.ObjetID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ObjetID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ObjetID })
+            @Html.ActionLink(@site.viewDeleteTitle, "Delete", new { id=item.ObjetID })
         </td>
     </tr>
 }

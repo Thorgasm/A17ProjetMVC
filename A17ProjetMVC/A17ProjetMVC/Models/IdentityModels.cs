@@ -5,22 +5,23 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using A17ProjetMVC.Resources;
 
 namespace A17ProjetMVC.Models
 {
     // Vous pouvez ajouter des données de profil pour l'utilisateur en ajoutant plus de propriétés à votre classe ApplicationUser ; consultez http://go.microsoft.com/fwlink/?LinkID=317594 pour en savoir davantage.
     public class ApplicationUser : IdentityUser
     {
-        [Display(Name = "Nom")]
+        [Display(Name = "statLastName", ResourceType = typeof(Resources.site))]
         public string Nom { get; set; }
 
-        [Display(Name = "Prénom")]
+        [Display(Name = "statFirstName", ResourceType = typeof(Resources.site))]
         public string Prenom { get; set; }
         
-        [Display(Name = "Adresse")]
+        [Display(Name = "modelUserAddress", ResourceType = typeof(Resources.site))]
         public string Adresse { get; set; }
 
-        [Display(Name = "Numéro de téléphone")]
+        [Display(Name = "modelUserTel", ResourceType = typeof(Resources.site))]
         [Phone]
         public override string PhoneNumber
         {
@@ -35,7 +36,7 @@ namespace A17ProjetMVC.Models
             }
         }
 
-        [Display(Name = "Matricule")]
+        [Display(Name = "statRegistrationNumber", ResourceType = typeof(Resources.site))]
         public override string UserName
         {
             get

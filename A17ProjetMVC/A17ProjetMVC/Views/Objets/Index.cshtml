@@ -1,8 +1,9 @@
 ﻿@model IEnumerable<A17ProjetMVC.Models.Objet>
 @using Microsoft.AspNet.Identity;
+@using A17ProjetMVC.Resources;
 
 @{
-	ViewBag.Title = "Tout les objets";
+	ViewBag.Title = @site.viewObjectIndexTitle;
 }
 <!-- Objets disponibles-->
 
@@ -11,7 +12,7 @@
 @if (User.Identity.IsAuthenticated)
 {
     <p>
-        @Html.ActionLink("Create New", "Create", "Objets", null, htmlAttributes: new { @class = "btn btn-primary" })
+        @Html.ActionLink(@site.buttonCreateNew, "Create", "Objets", null, htmlAttributes: new { @class = "btn btn-primary" })
     </p>
 }
 
@@ -61,7 +62,7 @@
                         @Html.ActionLink("Details", "Details", new { id = item.ObjetID }) | 
                         @if (item.estDisponible == true && item.UserID != User.Identity.GetUserId())
                         {
-                            @Html.ActionLink("Emprunt", "Emprunt", new { id = item.ObjetID })
+                            @Html.ActionLink(@site.Borrow, "Emprunt", new { id = item.ObjetID })
                         }
                     </td>
                 </tr>
@@ -71,7 +72,7 @@
         {
             <tr>
                 <td colspan="4">
-                    Il n'y a aucun objet à afficher.
+                    @site.viewObjectIndexElseList
                 </td>
             </tr>
         }

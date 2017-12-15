@@ -1,11 +1,12 @@
 ﻿@model IEnumerable<A17ProjetMVC.Models.Objet>
 @using Microsoft.AspNet.Identity;
+@using A17ProjetMVC.Resources;
 
 @{
-    ViewBag.Title = "ObjetsDispo";
+    ViewBag.Title = @site.AvaibleObjects;
 }
 
-<h2>@A17ProjetMVC.Resources.site.AvaibleObjects</h2>
+<h2>@site.AvaibleObjects</h2>
 
 <table class="table">
     <tr>
@@ -30,7 +31,7 @@
             @Html.ActionLink("Details", "Details", new { id=item.ObjetID }) |
             @if (item.UserID != User.Identity.GetUserId())
             {
-                @Html.ActionLink(A17ProjetMVC.Resources.site.Borrow, "Emprunt", new { id = item.ObjetID })
+                @Html.ActionLink(@site.Borrow, "Emprunt", new { id = item.ObjetID })
             }
         </td>
     </tr>
