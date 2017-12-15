@@ -302,5 +302,50 @@ namespace A17ProjetMVC.Resources {
                 return ResourceManager.GetString("topMemberObjCount", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Available objects.
+        /// </summary>
+        public static string viewSharedAvailableObjects {
+            get {
+                return ResourceManager.GetString("viewSharedAvailableObjects", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Home.
+        /// </summary>
+        public static string viewSharedHome {
+            get {
+                return ResourceManager.GetString("viewSharedHome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à My borrows.
+        /// </summary>
+        public static string viewSharedMyBorrows {
+            get {
+                return ResourceManager.GetString("viewSharedMyBorrows", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à My objects.
+        /// </summary>
+        public static string viewSharedMyObject {
+            get {
+                return ResourceManager.GetString("viewSharedMyObject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Statistics.
+        /// </summary>
+        public static string viewSharedStat {
+            get {
+                return ResourceManager.GetString("viewSharedStat", resourceCulture);
+            }
+        }
     }
 }

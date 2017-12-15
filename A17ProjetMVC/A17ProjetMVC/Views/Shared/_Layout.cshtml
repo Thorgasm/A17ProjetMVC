@@ -1,4 +1,5 @@
 ﻿@using Microsoft.AspNet.Identity;
+@using A17ProjetMVC.Resources;
 
 <!DOCTYPE html>
 <html>
@@ -20,6 +21,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                @Html.ActionLink("FR/EN", "IndexFrEn", "Home", new { returnUrl = this.Request.RawUrl }, new { @class = "navbar-brand" })                
                 @Html.ActionLink("Nom d'application", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
@@ -30,11 +32,11 @@
                     }
                     else
                     {
-                        <li>@Html.ActionLink("Accueil", "Index", "Objets")</li>
-                        <li>@Html.ActionLink("Mes objets", "MesObjets", "Objets")</li>
-                        <li>@Html.ActionLink("Objets Dispos", "ObjetsDispo", "Objets")</li>
-                        <li>@Html.ActionLink("Statistiques", "Statistiques", "Objets")</li>
-                        <li>@Html.ActionLink("Mes Emprunts", "MesEmprunts", "Emprunts")</li>
+                        <li>@Html.ActionLink(@site.viewSharedHome, "Index", "Objets")</li>
+                        <li>@Html.ActionLink(@site.viewSharedMyObject, "MesObjets", "Objets")</li>
+                        <li>@Html.ActionLink(@site.viewSharedAvailableObjects, "ObjetsDispo", "Objets")</li>
+                        <li>@Html.ActionLink(@site.viewSharedStat, "Statistiques", "Objets")</li>
+                        <li>@Html.ActionLink(@site.viewSharedMyBorrows, "MesEmprunts", "Emprunts")</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")

@@ -198,4 +198,19 @@
   <data name="topMemberObjCount" xml:space="preserve">
     <value>Nombre d'objet</value>
   </data>
+  <data name="viewSharedAvailableObjects" xml:space="preserve">
+    <value>Objets disponibles</value>
+  </data>
+  <data name="viewSharedHome" xml:space="preserve">
+    <value>Accueil</value>
+  </data>
+  <data name="viewSharedMyBorrows" xml:space="preserve">
+    <value>Mes emprunts</value>
+  </data>
+  <data name="viewSharedMyObject" xml:space="preserve">
+    <value>Mes objets</value>
+  </data>
+  <data name="viewSharedStat" xml:space="preserve">
+    <value>Statistiques</value>
+  </data>
 </root>

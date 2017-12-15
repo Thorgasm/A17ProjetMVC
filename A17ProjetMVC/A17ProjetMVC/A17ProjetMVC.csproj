@@ -226,6 +226,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>site.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\site.en.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>site.en.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\site.fr.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -328,6 +333,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\site.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>site.en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\site.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>site.Designer.cs</LastGenOutput>
