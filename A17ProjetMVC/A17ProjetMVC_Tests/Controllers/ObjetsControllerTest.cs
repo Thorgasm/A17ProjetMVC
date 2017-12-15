@@ -67,33 +67,7 @@ namespace A17ProjetMVC_Tests.Controllers
 
         }
 
-        //test fonctionnel mais MOCKCONTEXT.OBJECTS.USERS IS NULL
-        [TestMethod]
-        public void TestTop5MembreApreciesSemaine()
-        {
-            SetUp();
-            var emprunts = new List<Emprunt>
-            {
-                new Emprunt { ObjetID = 1, UserID = "1", NoteService = 1, DateFin = DateTime.Now },
-                new Emprunt { ObjetID = 2, UserID = "1", NoteService = 5, DateFin = DateTime.Now },
-                new Emprunt { ObjetID = 3, UserID = "1", NoteService = 5, DateFin = DateTime.Now.AddMonths(-1) }
-            }.AsQueryable();             
-
-
-            mockContext.Object.Emprunts.AddRange(emprunts);
-
-            mockContext.Object.Users.Where(u => u.Id == "1").First().Emprunts.AddRange(emprunts);
-
-            GenericRepository<Objet> a = new GenericRepository<Objet>(mockContext.Object);
-
-            var lst = a.getTopMembresAprecies(TimeSpace.SEMAINE);
-
-            Assert.AreEqual(2, lst.Count);
-
-            Assert.AreEqual(3, lst.First().AverageNotes);
-
-
-        }
+        
         [TestMethod]
         public void TestTopCategoriesPlus()
         {
@@ -166,6 +140,51 @@ namespace A17ProjetMVC_Tests.Controllers
             Assert.AreEqual(lst[1].ObjetID, 2);
 
             Assert.AreEqual(lst.Count, 2);
+
+        }
+
+        //test fonctionnel mais MOCKCONTEXT.OBJECTS.USERS IS NULL
+        [TestMethod]
+        public void TestTop5MembreApreciesSemaine()
+        {
+            SetUp();
+            var emprunts = new List<Emprunt>
+            {
+                new Emprunt { ObjetID = 1, UserID = "1", NoteService = 1, DateFin = DateTime.Now },
+                new Emprunt { ObjetID = 2, UserID = "1", NoteService = 5, DateFin = DateTime.Now },
+                new Emprunt { ObjetID = 3, UserID = "1", NoteService = 5, DateFin = DateTime.Now.AddMonths(-1) }
+            }.AsQueryable();
+
+
+            mockContext.Object.Emprunts.AddRange(emprunts);
+
+            mockContext.Object.Users.Where(u => u.Id == "1").First().Emprunts.AddRange(emprunts);
+
+            GenericRepository<Objet> a = new GenericRepository<Objet>(mockContext.Object);
+
+            var lst = a.getTopMembresAprecies(TimeSpace.SEMAINE);
+
+            Assert.AreEqual(2, lst.Count);
+
+            Assert.AreEqual(3, lst.First().AverageNotes);
+
+        }
+
+        //test fonctionnel mais MOCKCONTEXT.OBJECTS.USERS IS NULL
+        [TestMethod]
+        public void TestGetMembresGenereux()
+        {
+            SetUp();
+
+            GenericRepository<Objet> a = new GenericRepository<Objet>(mockContext.Object);
+
+            var lst = a.getTopMembres(TimeSpace.SEMAINE);
+
+            Assert.AreEqual(lst[0].User.Id, "1");
+
+            Assert.AreEqual(lst[1].User.Id, "2");
+
+            Assert.AreEqual(lst[2].User.Id, "3");
 
         }
     }
