@@ -32,11 +32,11 @@ namespace A17ProjetMVC_Tests.Controllers
             var objets = new List<Objet>
             {
             new Objet { CategorieID = 1, DatePublication = DateTime.Now, ObjetID = 1, Description = "un objet de test", NomObjet = "Objet1", estDisponible = true, UserID = "1" },
-            new Objet { CategorieID = 1, DatePublication = DateTime.Now, ObjetID = 2, Description = "un objet de test", NomObjet = "Objet1", estDisponible = false, UserID = "1" },
-            new Objet { CategorieID = 2, DatePublication = DateTime.Now, ObjetID = 3, Description = "un objet de test", NomObjet = "Objet1", estDisponible = true, UserID = "1" },
-            new Objet { CategorieID = 2, DatePublication = DateTime.Now, ObjetID = 4, Description = "un objet de test", NomObjet = "Objet1", estDisponible = false, UserID = "2" },
-            new Objet { CategorieID = 2, DatePublication = DateTime.Now, ObjetID = 5, Description = "un objet de test", NomObjet = "Objet1", estDisponible = true, UserID = "2" },
-            new Objet { CategorieID = 3, DatePublication = DateTime.Now, ObjetID = 6, Description = "un objet de test", NomObjet = "Objet1", estDisponible = false, UserID = "3" }
+            new Objet { CategorieID = 1, DatePublication = DateTime.Now, ObjetID = 2, Description = "un objet de test", NomObjet = "Objet2", estDisponible = false, UserID = "1" },
+            new Objet { CategorieID = 2, DatePublication = DateTime.Now, ObjetID = 3, Description = "un objet de test", NomObjet = "Objet3", estDisponible = true, UserID = "1" },
+            new Objet { CategorieID = 2, DatePublication = DateTime.Now, ObjetID = 4, Description = "un objet de test", NomObjet = "Objet4", estDisponible = false, UserID = "2" },
+            new Objet { CategorieID = 2, DatePublication = DateTime.Now, ObjetID = 5, Description = "un objet de test", NomObjet = "Objet5", estDisponible = true, UserID = "2" },
+            new Objet { CategorieID = 3, DatePublication = DateTime.Now, ObjetID = 6, Description = "un objet de test", NomObjet = "Objet6", estDisponible = false, UserID = "3" }
             }.AsQueryable();
 
             mockContext.Object.Objets.AddRange(objets);
@@ -150,6 +150,22 @@ namespace A17ProjetMVC_Tests.Controllers
             Assert.AreEqual(lst.First(x => x.ObjetID == 3).ObjetID, 3);
 
             Assert.AreEqual(lst.First(x => x.ObjetID == 5).ObjetID, 5);
+
+        }
+        [TestMethod]
+        public void TestGetObjetsByCat()
+        {
+            SetUp();
+
+            GenericRepository<Objet> a = new GenericRepository<Objet>(mockContext.Object);
+
+            var lst = a.GetObjetsByCat(1);
+
+            Assert.AreEqual(lst[0].ObjetID, 1);
+
+            Assert.AreEqual(lst[1].ObjetID, 2);
+
+            Assert.AreEqual(lst.Count, 2);
 
         }
     }

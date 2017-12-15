@@ -50,25 +50,7 @@ namespace A17ProjetMVC.DAL
 
             return lst;
         }
-        // je pense que l'objet le plus demandé est celui qui a le plus d'emprunts
-        public static List<Objet> getTop5Objets(this GenericRepository<Objet> repo)
-        {
-            List<Emprunt> lst = new List<Emprunt>();
-            foreach (ApplicationUser m in repo.context.Users)
-            {
-                lst.AddRange(m.Emprunts.ToList());
-            }
-            List<Objet> lstO = lst.Select(a => a.Objet).ToList();
-
-            List<Objet> top = lstO.GroupBy(o => o.ObjetID).OrderByDescending(o => o.Count()).Select(g => new Objet { ObjetID = g.Key }).ToList();
-
-            for (int i = 0; i < top.Count; i++)
-            {
-                top[i] = repo.context.Objets.Find(top[i].ObjetID);
-            }
-
-            return top;
-        }
+       
 
         public static List<TopMemberVM> getTopMembres(this GenericRepository<Objet> repo, TimeSpace pTimeSpace)
         {
@@ -123,19 +105,13 @@ namespace A17ProjetMVC.DAL
                 min = min.AddDays(-7);
             }
 
-            List<ApplicationUser> test = repo.context.Users.ToList();
-            List<Objet> obj = repo.context.Objets.ToList();
-            List<Emprunt> em = repo.context.Emprunts.ToList();
-            List<Categorie> cat = repo.context.Categories.ToList();
-
-            //var membres = repo.context.Users.ToList();
-
             if (repo.context.Users.ToList().Count() != 0)
             {
 
                 List<TopMembresAprecieVM> lstM = repo.context.Emprunts
                     .GroupBy(u => u.User)
-                    .Select(u => new TopMembresAprecieVM { AverageNotes = u.Key.Emprunts.Where(e => e.DateFin != null && e.DateFin > min).Average(av => av.NoteService), User = u.Key })
+                    .Where(a => a.Key.Emprunts.Where(e => e.DateFin != null && e.DateFin > min).Count() > 0)
+                    .Select(u => new TopMembresAprecieVM { AverageNotes = u.Key.Emprunts.Average(av => (double?)av.NoteService) ?? 0, User = u.Key })
                     .OrderByDescending(a => a.AverageNotes).Take(5)
                     .ToList();
 

@@ -69,12 +69,6 @@ namespace A17ProjetMVC.Controllers
         {
             return View(unitOfWork.ObjetRepository.GetAvailableObjets());
         }
-        [Route("TopObjets")]
-        [AllowAnonymous]
-        public ActionResult Top5Objets()
-        {
-            return View(unitOfWork.ObjetRepository.getTop5Objets());
-        }
         [Route("TopMembres")]
         [AllowAnonymous]
         public ActionResult TopMembres()
